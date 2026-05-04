@@ -1,0 +1,39 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@theme {
+  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+
+  --color-brand: oklch(62% 0.19 250);
+  --color-brand-light: oklch(72% 0.19 250);
+  --color-canvas: oklch(7% 0.02 250);
+  --color-surface: oklch(11% 0.02 250);
+  --color-line: oklch(22% 0.03 250);
+  --color-ink: oklch(96% 0 0);
+  --color-dim: oklch(60% 0 0);
+}
+
+@utility py-section {
+  padding-top: clamp(4rem, 3rem + 5vw, 10rem);
+  padding-bottom: clamp(4rem, 3rem + 5vw, 10rem);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    line-height: 1.6;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}

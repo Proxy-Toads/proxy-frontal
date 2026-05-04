@@ -1,0 +1,33 @@
+---
+import { Icon } from 'astro-icon/components'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Button from '@/components/ui/Button.astro'
+import GradientPanel from '@/components/ui/GradientPanel.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+---
+
+<section id="contact" class="py-section px-6">
+  <div class="max-w-6xl mx-auto">
+    <GradientPanel class="p-12">
+      <SectionHeader
+        eyebrow={t('cta.eyebrow')}
+        headline={t('cta.headline')}
+        sub={t('cta.sub')}
+      />
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="mailto:hello@proxytoads.com">
+          {t('cta.primary')}
+          <Icon name="lucide:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+        </Button>
+        <Button href="mailto:hello@proxytoads.com" variant="outline">
+          {t('cta.secondary')}
+        </Button>
+      </div>
+    </GradientPanel>
+  </div>
+</section>

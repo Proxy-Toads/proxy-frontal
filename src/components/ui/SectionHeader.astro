@@ -1,0 +1,19 @@
+---
+import Highlight from '@/components/ui/Highlight.astro'
+
+interface Props {
+  eyebrow: string
+  headline: string
+  sub?: string
+}
+
+const { eyebrow, headline, sub } = Astro.props
+---
+
+<div class="text-center mb-16">
+  <p class="text-brand text-sm font-medium tracking-wider uppercase mb-3">{eyebrow}</p>
+  <h2 class="text-3xl md:text-4xl font-bold mb-4 text-balance">
+    <Highlight text={headline} />
+  </h2>
+  {sub && <p class="text-dim max-w-2xl mx-auto text-pretty">{sub}</p>}
+</div>

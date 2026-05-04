@@ -1,0 +1,32 @@
+---
+import Logo from '@/components/ui/Logo.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const homeHref = lang === 'en' ? '/' : `/${lang}/`
+
+const links = [
+  { label: t('footer.privacy'), href: '#' },
+  { label: t('footer.terms'), href: '#' },
+  { label: t('footer.support'), href: '#' },
+  { label: t('footer.blog'), href: '#' },
+]
+---
+
+<footer class="border-t border-line py-12 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <Logo href={homeHref} />
+
+    <nav class="flex flex-wrap items-center justify-center gap-6 text-sm">
+      {links.map((link) => (
+        <a href={link.href} class="text-dim hover:text-ink transition-colors">
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <p class="text-sm text-dim">{t('footer.copy')}</p>
+  </div>
+</footer>

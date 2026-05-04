@@ -1,0 +1,17 @@
+---
+import { parseBold } from '@/i18n/utils'
+
+interface Props {
+  text: string
+  class?: string
+}
+
+const { text, class: className } = Astro.props
+const parts = parseBold(text)
+---
+
+<span class={className}>
+  {parts.map((part) =>
+    part.bold ? <span class="text-brand">{part.text}</span> : part.text
+  )}
+</span>

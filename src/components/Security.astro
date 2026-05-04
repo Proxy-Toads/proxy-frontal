@@ -1,0 +1,39 @@
+---
+import { Icon } from 'astro-icon/components'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Card from '@/components/ui/Card.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+
+const features = [
+  { icon: 'lucide:shield', title: t('security.1.title'), desc: t('security.1.desc') },
+  { icon: 'lucide:lock', title: t('security.2.title'), desc: t('security.2.desc') },
+  { icon: 'lucide:eye', title: t('security.3.title'), desc: t('security.3.desc') },
+  { icon: 'lucide:server', title: t('security.4.title'), desc: t('security.4.desc') },
+]
+---
+
+<section id="security" class="py-section px-6">
+  <div class="max-w-6xl mx-auto">
+    <SectionHeader
+      eyebrow={t('security.eyebrow')}
+      headline={t('security.headline')}
+      sub={t('security.sub')}
+    />
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {features.map((feature) => (
+        <Card class="text-center">
+          <div class="w-14 h-14 rounded-full bg-brand/10 flex items-center justify-center mx-auto mb-4">
+            <Icon name={feature.icon} class="w-6 h-6 text-brand" />
+          </div>
+          <h3 class="font-semibold text-ink mb-2">{feature.title}</h3>
+          <p class="text-sm text-dim leading-relaxed">{feature.desc}</p>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

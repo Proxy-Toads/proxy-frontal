@@ -1,0 +1,14 @@
+---
+import favicon from '/public/favicon.svg?raw'
+
+interface Props {
+  href: string
+}
+
+const { href } = Astro.props
+---
+
+<a href={href} class="flex items-center gap-2.5 shrink-0">
+  <span class="w-8 h-8" aria-hidden="true" set:html={favicon} />
+  <span class="font-semibold text-ink">ProxyToads</span>
+</a>

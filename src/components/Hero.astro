@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon/components'
+import Button from '@/components/ui/Button.astro'
+import Highlight from '@/components/ui/Highlight.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+
+const stats = [
+  { value: t('hero.stat.1.value'), label: t('hero.stat.1.label') },
+  { value: t('hero.stat.2.value'), label: t('hero.stat.2.label') },
+  { value: t('hero.stat.3.value'), label: t('hero.stat.3.label') },
+]
+---
+
+<section class="min-h-svh flex items-center justify-center py-section">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-line bg-surface/50 mb-8 text-sm text-dim">
+      <Icon name="lucide:sparkles" class="w-4 h-4 text-brand" />
+      {t('hero.badge')}
+    </div>
+
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-balance leading-tight">
+      <Highlight text={t('hero.headline')} />
+    </h1>
+
+    <p class="text-lg md:text-xl text-dim max-w-2xl mx-auto mb-10 text-pretty">
+      {t('hero.sub')}
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <Button href="#contact">
+        {t('hero.cta.primary')}
+        <Icon name="lucide:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+      </Button>
+      <Button href="#services" variant="outline">
+        <Icon name="lucide:bot" class="w-4 h-4 text-brand" />
+        {t('hero.cta.secondary')}
+      </Button>
+    </div>
+
+    <div class="grid grid-cols-3 gap-8 mt-20 pt-10 border-t border-line">
+      {stats.map((stat) => (
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-brand">{stat.value}</p>
+          <p class="text-sm text-dim mt-1">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+import '@/styles/global.css'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={t('meta.description')} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{t('meta.title')}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

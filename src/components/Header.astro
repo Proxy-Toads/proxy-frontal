@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components'
+import Button from '@/components/ui/Button.astro'
+import Logo from '@/components/ui/Logo.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const homeHref = lang === 'en' ? '/' : `/${lang}/`
+---
+
+<header class="fixed top-0 inset-x-0 z-50 border-b border-line/60 bg-canvas/80 backdrop-blur-md">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
+    <Logo href={homeHref} />
+
+    <nav class="hidden md:flex items-center gap-7 text-sm text-dim">
+      <a href="#services" class="hover:text-ink transition-colors">{t('nav.services')}</a>
+      <a href="#benefits" class="hover:text-ink transition-colors">{t('nav.benefits')}</a>
+      <a href="#security" class="hover:text-ink transition-colors">{t('nav.security')}</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href={t('nav.lang-href')} class="text-sm text-dim hover:text-ink transition-colors">
+        {t('nav.lang-label')}
+      </a>
+      <Button href="#contact" class="hidden sm:inline-flex text-sm px-4 py-2">
+        {t('nav.cta')}
+      </Button>
+      <button
+        id="menu-toggle"
+        class="md:hidden p-2 text-dim hover:text-ink transition-colors"
+        aria-label="Toggle menu"
+      >
+        <Icon name="lucide:menu" class="w-5 h-5" />
+      </button>
+    </div>
+  </div>
+
+  <nav
+    id="mobile-nav"
+    class="hidden border-t border-line/60 px-6 py-4 flex-col gap-4 text-sm text-dim"
+  >
+    <a href="#services" class="hover:text-ink transition-colors">{t('nav.services')}</a>
+    <a href="#benefits" class="hover:text-ink transition-colors">{t('nav.benefits')}</a>
+    <a href="#security" class="hover:text-ink transition-colors">{t('nav.security')}</a>
+    <Button href="#contact" class="w-fit text-sm px-4 py-2">
+      {t('nav.cta')}
+    </Button>
+  </nav>
+</header>
+
+<script>
+  document.getElementById('menu-toggle')?.addEventListener('click', () => {
+    const nav = document.getElementById('mobile-nav')
+    nav?.classList.toggle('hidden')
+    nav?.classList.toggle('flex')
+  })
+</script>
