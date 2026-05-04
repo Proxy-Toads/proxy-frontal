@@ -1,0 +1,68 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Security & DevOps | Cloud | ProxyToads'
+const description =
+  'Cloud security and DevOps practices for modern teams. CI/CD, monitoring, secrets management and proactive protection to ship fast without compromising security.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Security / DevOps"
+    title="Speed and security — without having to choose"
+    subtitle="We implement DevSecOps practices that let your team deploy with confidence and frequency, without compromising the security or stability of your production environment."
+    ctaLabel="Security audit"
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: 'Cloud', href: '/cloud/' },
+      { label: 'Security / DevOps', href: '/cloud/seguridad-devops/' },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">DevOps</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">Pipelines that deliver better software, faster</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">We build the infrastructure and processes that allow your development team to move fast with confidence.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'CI/CD Pipelines', desc: 'Continuous integration and delivery with GitHub Actions, GitLab CI or Bitbucket Pipelines for automatic, safe releases.' },
+          { title: 'Infrastructure as Code', desc: 'Terraform and Pulumi to manage your infrastructure as code: versioned, reproducible and fully audited.' },
+          { title: 'Monitoring & alerting', desc: 'Full observability with Prometheus, Grafana, Datadog or CloudWatch to detect issues before they impact users.' },
+          { title: 'Secrets management', desc: 'HashiCorp Vault, AWS Secrets Manager and automatic credential rotation so sensitive keys are never exposed.' },
+          { title: 'Log management', desc: 'Centralised, indexed logs with alerts to detect anomalies and debug issues in seconds.' },
+          { title: 'Disaster recovery', desc: 'Backup strategies, defined RPO/RTO and tested playbooks to recover from any incident.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Security</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">Proactive protection at every layer of your infrastructure</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Identity management (IAM)', desc: 'Least-privilege principle, MFA and role-based access control to protect who accesses what.' },
+          { title: 'Vulnerability scanning', desc: 'Continuous scanning of containers, dependencies and infrastructure to catch vulnerabilities before they are exploited.' },
+          { title: 'Encryption at rest & in transit', desc: 'AES-256, TLS 1.3 and automated certificate management to protect all your data.' },
+          { title: 'Compliance & audit', desc: 'GDPR, ISO 27001, SOC 2 and other standards compliance with complete audit trails.' },
+          { title: 'WAF & DDoS protection', desc: 'Web application firewall and denial-of-service mitigation at network and application level.' },
+          { title: 'Pentesting & code review', desc: 'Periodic penetration tests and security code reviews to find real weaknesses before attackers do.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

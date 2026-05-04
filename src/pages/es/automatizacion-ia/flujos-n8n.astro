@@ -1,0 +1,79 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Flujos con n8n | Automatización | ProxyToads'
+const description =
+  'Automatización de workflows con n8n. Conecta CRM, email, Slack, bases de datos y más de 400 apps para eliminar el trabajo manual entre sistemas sin escribir código.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Flujos con n8n"
+    title="Conecta todo. Automatiza todo. Con n8n."
+    subtitle="Diseñamos flujos de automatización en n8n que conectan tus herramientas, eliminan el trabajo manual entre sistemas y hacen que tu empresa funcione en piloto automático."
+    ctaLabel="Ver una demo"
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: 'Automatización con IA', href: '/es/automatizacion-ia/' },
+      { label: 'Flujos con n8n', href: '/es/automatizacion-ia/flujos-n8n/' },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Casos de uso</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">¿Qué puedes automatizar con n8n?</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">Casi cualquier tarea repetitiva que implique mover datos entre sistemas tiene solución en n8n. Estos son los más comunes.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Sincronización de CRM', desc: 'Actualiza contactos, oportunidades y tareas entre tu CRM, email y otras plataformas sin intervención manual.' },
+          { title: 'Notificaciones automáticas', desc: 'Envía alertas a Slack, Teams o email cuando ocurren eventos clave en tu negocio.' },
+          { title: 'Gestión de leads', desc: 'Captura leads desde formularios, cualifícalos con IA y distribúyelos automáticamente a tu equipo.' },
+          { title: 'Facturación y contabilidad', desc: 'Genera facturas, registra pagos y sincroniza datos financieros entre plataformas sin tocar nada.' },
+          { title: 'Onboarding de clientes', desc: 'Automatiza todo el proceso: bienvenida, accesos, documentación y seguimiento post-venta.' },
+          { title: 'Reportes automáticos', desc: 'Genera y envía informes periódicos con datos actualizados de todas tus fuentes de información.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">+400</p>
+        <p class="text-dim text-sm">Integraciones nativas</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">∞</p>
+        <p class="text-dim text-sm">Ejecuciones mensuales</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">Self</p>
+        <p class="text-dim text-sm">Hosted en tu infraestructura</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">0</p>
+        <p class="text-dim text-sm">Código necesario para usar</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Integraciones populares</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">Se conecta con las herramientas que ya usas</h2>
+      <div class="flex flex-wrap gap-3">
+        {['HubSpot', 'Salesforce', 'Gmail', 'Slack', 'Notion', 'Airtable', 'Google Sheets', 'WhatsApp Business', 'Stripe', 'Shopify', 'WordPress', 'PostgreSQL', 'MySQL', 'OpenAI', 'Anthropic Claude', 'Zapier', 'Typeform', 'Calendly', 'Twilio', 'Mailchimp'].map(tool => (
+          <span class="px-4 py-2 rounded-full border border-line bg-surface text-dim text-sm">{tool}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

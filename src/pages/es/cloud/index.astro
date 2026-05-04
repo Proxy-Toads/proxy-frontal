@@ -1,0 +1,110 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Cloud | ProxyToads'
+const description =
+  'Infraestructura cloud escalable y segura en AWS, Azure y Google Cloud. Arquitectura, migración, DevOps y seguridad para empresas que quieren crecer sin límites.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Cloud"
+    title="Infraestructura cloud sin límites para tu empresa"
+    subtitle="Diseñamos, migramos y gestionamos tu infraestructura en los mejores proveedores cloud del mundo con seguridad, escalabilidad y costos controlados."
+    ctaLabel="Solicitar arquitectura"
+    ctaHref="mailto:hello@proxytoads.com"
+    ctaSecondaryLabel="Ver servicios"
+    ctaSecondaryHref="#servicios"
+    breadcrumb={[{ label: 'Cloud', href: '/es/cloud/' }]}
+  />
+
+  <section id="servicios" class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Nuestros servicios</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">
+        Todo lo que necesitas para operar en la nube
+      </h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">
+        Del servidor físico a la nube, o de la nube a una arquitectura moderna. Estamos con tu empresa en cada etapa del viaje cloud.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <a href="/es/cloud/aws-infraestructura/" class="group p-8 rounded-xl border border-line hover:border-brand/50 transition-colors bg-surface">
+          <div class="w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-ink mb-3 group-hover:text-brand transition-colors">AWS / Infraestructura</h3>
+          <p class="text-dim leading-relaxed mb-4">Arquitectura, migración y gestión de infraestructura en Amazon Web Services con alta disponibilidad y costos optimizados.</p>
+          <span class="text-brand text-sm font-medium">Explorar →</span>
+        </a>
+
+        <a href="/es/cloud/tecnologia-cloud/" class="group p-8 rounded-xl border border-line hover:border-brand/50 transition-colors bg-surface">
+          <div class="w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-ink mb-3 group-hover:text-brand transition-colors">Tecnología Cloud</h3>
+          <p class="text-dim leading-relaxed mb-4">Contenedores, Kubernetes, microservicios y arquitecturas serverless para plataformas modernas que escalan con tu negocio.</p>
+          <span class="text-brand text-sm font-medium">Explorar →</span>
+        </a>
+
+        <a href="/es/cloud/seguridad-devops/" class="group p-8 rounded-xl border border-line hover:border-brand/50 transition-colors bg-surface">
+          <div class="w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-ink mb-3 group-hover:text-brand transition-colors">Seguridad / DevOps</h3>
+          <p class="text-dim leading-relaxed mb-4">CI/CD, monitorización, gestión de secretos y seguridad proactiva para que tu equipo despliegue rápido y sin riesgos.</p>
+          <span class="text-brand text-sm font-medium">Explorar →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">99.9%</p>
+        <p class="text-dim text-sm">Uptime garantizado</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">−40%</p>
+        <p class="text-dim text-sm">Ahorro en infraestructura</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">3</p>
+        <p class="text-dim text-sm">Proveedores cloud soportados</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">ISO</p>
+        <p class="text-dim text-sm">27001 compliance</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Proveedores cloud</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">
+        Expertos certificados en los tres grandes
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          { name: 'Amazon Web Services', desc: 'El proveedor líder del mercado. Potencia, escala y el ecosistema más completo de servicios cloud del mundo.' },
+          { name: 'Microsoft Azure', desc: 'Integración nativa con el ecosistema Microsoft. Ideal para empresas que ya usan Office 365 o servicios de Microsoft.' },
+          { name: 'Google Cloud Platform', desc: 'La mejor infraestructura de red del mundo y las herramientas de IA y analytics más avanzadas del mercado.' },
+        ].map(({ name, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <h3 class="text-lg font-semibold text-ink mb-2">{name}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

@@ -8,23 +8,90 @@ import type { Lang } from '@/i18n/utils'
 const lang = (Astro.currentLocale ?? 'en') as Lang
 const t = useTranslations(lang)
 const homeHref = lang === 'en' ? '/' : `/${lang}/`
+const base = lang === 'en' ? '' : `/${lang}`
+
+const currentPath = Astro.url.pathname
+const langSwitchHref =
+  lang === 'es'
+    ? currentPath.replace(/^\/es/, '') || '/'
+    : '/es' + currentPath
+
+const navLinks = [
+  {
+    label: t('nav.ai'),
+    href: `${base}/automatizacion-ia/`,
+    children: [
+      { label: t('nav.ai.chatbot'), href: `${base}/automatizacion-ia/chatbot-ia/` },
+      { label: t('nav.ai.tools'), href: `${base}/automatizacion-ia/herramientas-ia/` },
+      { label: t('nav.ai.n8n'), href: `${base}/automatizacion-ia/flujos-n8n/` },
+    ],
+  },
+  {
+    label: t('nav.digital'),
+    href: `${base}/transformacion-digital/`,
+    children: [
+      { label: t('nav.digital.audit'), href: `${base}/transformacion-digital/auditoria-procesos/` },
+      { label: t('nav.digital.pymes'), href: `${base}/transformacion-digital/digitalizacion-pymes/` },
+      { label: t('nav.digital.automation'), href: `${base}/transformacion-digital/automatizacion-procesos/` },
+    ],
+  },
+  {
+    label: t('nav.cloud'),
+    href: `${base}/cloud/`,
+    children: [
+      { label: t('nav.cloud.aws'), href: `${base}/cloud/aws-infraestructura/` },
+      { label: t('nav.cloud.tech'), href: `${base}/cloud/tecnologia-cloud/` },
+      { label: t('nav.cloud.devops'), href: `${base}/cloud/seguridad-devops/` },
+    ],
+  },
+]
 ---
 
 <header class="fixed top-0 inset-x-0 z-50 border-b border-line/60 bg-canvas/80 backdrop-blur-md">
   <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
     <Logo href={homeHref} />
 
-    <nav class="hidden md:flex items-center gap-7 text-sm text-dim">
-      <a href="#services" class="hover:text-ink transition-colors">{t('nav.services')}</a>
-      <a href="#benefits" class="hover:text-ink transition-colors">{t('nav.benefits')}</a>
-      <a href="#security" class="hover:text-ink transition-colors">{t('nav.security')}</a>
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-1 text-sm text-dim">
+      {navLinks.map(link => (
+        <div class="relative group">
+          <!-- Trigger -->
+          <a
+            href={link.href}
+            class="flex items-center gap-1 px-3 py-2 rounded-lg hover:text-ink hover:bg-surface transition-colors"
+          >
+            {link.label}
+            <svg
+              class="w-3.5 h-3.5 opacity-50 transition-transform duration-200 group-hover:rotate-180"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+
+          <!-- Dropdown panel — invisible bridge keeps hover alive while moving cursor down -->
+          <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 hidden group-hover:block">
+            <div class="bg-surface border border-line rounded-xl shadow-xl shadow-canvas/50 p-2 min-w-[220px]">
+              {link.children.map(child => (
+                <a
+                  href={child.href}
+                  class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-dim hover:text-ink hover:bg-brand/10 transition-colors"
+                >
+                  <span class="w-1 h-1 rounded-full bg-brand/60 flex-shrink-0"></span>
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
     </nav>
 
     <div class="flex items-center gap-3">
-      <a href={t('nav.lang-href')} class="text-sm text-dim hover:text-ink transition-colors">
+      <a href={langSwitchHref} class="text-sm text-dim hover:text-ink transition-colors">
         {t('nav.lang-label')}
       </a>
-      <Button href="#contact" class="hidden sm:inline-flex text-sm px-4 py-2">
+      <Button href="mailto:hello@proxytoads.com" class="hidden sm:inline-flex text-sm px-4 py-2">
         {t('nav.cta')}
       </Button>
       <button
@@ -37,23 +104,75 @@ const homeHref = lang === 'en' ? '/' : `/${lang}/`
     </div>
   </div>
 
+  <!-- Mobile nav -->
   <nav
     id="mobile-nav"
-    class="hidden border-t border-line/60 px-6 py-4 flex-col gap-4 text-sm text-dim"
+    class="hidden border-t border-line/60 px-6 py-4 flex-col gap-1 text-sm text-dim"
   >
-    <a href="#services" class="hover:text-ink transition-colors">{t('nav.services')}</a>
-    <a href="#benefits" class="hover:text-ink transition-colors">{t('nav.benefits')}</a>
-    <a href="#security" class="hover:text-ink transition-colors">{t('nav.security')}</a>
-    <Button href="#contact" class="w-fit text-sm px-4 py-2">
-      {t('nav.cta')}
-    </Button>
+    {navLinks.map((link, i) => (
+      <div>
+        <button
+          class="mobile-accordion-toggle w-full flex items-center justify-between px-3 py-2.5 rounded-lg hover:text-ink hover:bg-surface transition-colors"
+          data-index={i}
+          aria-expanded="false"
+        >
+          <span>{link.label}</span>
+          <svg
+            class="w-3.5 h-3.5 opacity-50 transition-transform duration-200"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <div class="mobile-accordion-panel hidden pl-4 pb-1 flex-col gap-1" data-panel={i}>
+          <a
+            href={link.href}
+            class="px-3 py-2 rounded-lg text-brand text-xs font-medium hover:bg-brand/10 transition-colors"
+          >
+            Ver todo →
+          </a>
+          {link.children.map(child => (
+            <a
+              href={child.href}
+              class="flex items-center gap-2 px-3 py-2 rounded-lg hover:text-ink hover:bg-surface transition-colors"
+            >
+              <span class="w-1 h-1 rounded-full bg-brand/60 flex-shrink-0"></span>
+              {child.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <div class="pt-2 border-t border-line/40 mt-2">
+      <Button href="mailto:hello@proxytoads.com" class="w-fit text-sm px-4 py-2">
+        {t('nav.cta')}
+      </Button>
+    </div>
   </nav>
 </header>
 
 <script>
+  // Mobile hamburger
   document.getElementById('menu-toggle')?.addEventListener('click', () => {
     const nav = document.getElementById('mobile-nav')
     nav?.classList.toggle('hidden')
     nav?.classList.toggle('flex')
+  })
+
+  // Mobile accordion
+  document.querySelectorAll<HTMLButtonElement>('.mobile-accordion-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const index = btn.dataset.index
+      const panel = document.querySelector<HTMLElement>(`.mobile-accordion-panel[data-panel="${index}"]`)
+      const chevron = btn.querySelector('svg')
+      const isOpen = btn.getAttribute('aria-expanded') === 'true'
+
+      btn.setAttribute('aria-expanded', String(!isOpen))
+      panel?.classList.toggle('hidden', isOpen)
+      panel?.classList.toggle('flex', !isOpen)
+      chevron?.classList.toggle('rotate-180', !isOpen)
+    })
   })
 </script>

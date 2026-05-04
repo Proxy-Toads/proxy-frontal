@@ -1,0 +1,93 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Cloud Technology | ProxyToads'
+const description =
+  'Cloud-native technology adoption: Docker containers, Kubernetes, microservices and serverless architectures. Modern platforms that scale with your business.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Cloud Technology"
+    title="Cloud-native: infrastructure that grows with your business"
+    subtitle="We adopt the best cloud technologies to modernise your technical platform: containers, orchestration, microservices and serverless architectures that scale on demand."
+    ctaLabel="Evaluate my platform"
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: 'Cloud', href: '/cloud/' },
+      { label: 'Cloud Technology', href: '/cloud/tecnologia-cloud/' },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Technologies</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">The modern cloud stack for scaling businesses</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">We select and implement the cloud technologies that add the most value to your case — no over-engineering, no unnecessary complexity.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Docker containers', desc: 'We package your applications into portable containers that behave identically across development, staging and production.' },
+          { title: 'Kubernetes (K8s)', desc: 'Container orchestration for automated deployment, scaling and service recovery without manual intervention.' },
+          { title: 'Microservices architecture', desc: 'Breaking monoliths into independent services so each part can scale, deploy and evolve autonomously.' },
+          { title: 'Serverless & Functions', desc: 'Lambda, Cloud Functions and Azure Functions for code that only pays when it runs and scales automatically.' },
+          { title: 'Service mesh', desc: 'Istio and Linkerd for traffic management, observability and security between microservices in production.' },
+          { title: 'CDN & edge computing', desc: 'Global content distribution with CloudFront, Cloudflare and others for minimal latency from anywhere.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">0s</p>
+        <p class="text-dim text-sm">Downtime during deploys</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">∞</p>
+        <p class="text-dim text-sm">Automatic scaling</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">−50%</p>
+        <p class="text-dim text-sm">Deployment time</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">100%</p>
+        <p class="text-dim text-sm">Cross-cloud portability</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Who it's for</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">Ideal if your company is in any of these situations</h2>
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl">
+        {[
+          'Your application has performance issues during traffic spikes',
+          'Deployments are slow, manual or cause downtime',
+          'You want to scale internationally without rebuilding your infrastructure',
+          'Your team needs development environments consistent with production',
+          'You have interdependent services that are difficult to update independently',
+          'You want to reduce costs by only paying for what you actually consume',
+        ].map(item => (
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-brand/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p class="text-dim">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

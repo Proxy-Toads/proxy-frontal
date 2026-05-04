@@ -1,0 +1,66 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Análisis de Procesos | Auditoría | ProxyToads'
+const description =
+  'Análisis profundo de tus procesos empresariales. Mapeo de flujos, entrevistas, identificación de ineficiencias y diagnóstico completo para preparar tu transformación digital.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Análisis · Auditoría de Procesos"
+    title="Una radiografía completa de cómo opera tu empresa"
+    subtitle="Realizamos un análisis detallado de cada proceso clave para entender dónde se pierde tiempo y dinero, qué herramientas se infrautilizan y cuáles son las mejores oportunidades de mejora."
+    ctaLabel="Solicitar análisis"
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: 'Transformación Digital', href: '/es/transformacion-digital/' },
+      { label: 'Auditoría de Procesos', href: '/es/transformacion-digital/auditoria-procesos/' },
+      { label: 'Análisis', href: '/es/transformacion-digital/auditoria-procesos/analisis/' },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Metodología</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">Cómo realizamos el análisis</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">Combinamos entrevistas con el equipo, observación directa de los procesos y análisis de datos para tener una visión objetiva y completa.</p>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        {[
+          { step: '01', title: 'Kick-off y alcance', desc: 'Definimos qué procesos analizar, quiénes participan y los objetivos concretos del diagnóstico.' },
+          { step: '02', title: 'Entrevistas y observación', desc: 'Hablamos con las personas que ejecutan los procesos cada día para capturar la realidad, no el manual.' },
+          { step: '03', title: 'Mapeo As-Is', desc: 'Documentamos visualmente cada proceso con sus pasos, actores, herramientas y puntos de dolor identificados.' },
+          { step: '04', title: 'Diagnóstico y priorización', desc: 'Cuantificamos el impacto de cada ineficiencia y priorizamos las oportunidades según esfuerzo y retorno.' },
+        ].map(({ step, title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <p class="text-3xl font-bold text-brand/20 mb-4">{step}</p>
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Entregables</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">Qué recibes al finalizar el análisis</h2>
+      <div class="grid sm:grid-cols-2 gap-6 max-w-3xl">
+        {[
+          { title: 'Mapas de procesos As-Is', desc: 'Diagramas detallados de cada proceso analizado con actores, herramientas, pasos y puntos de fricción.' },
+          { title: 'Informe de ineficiencias', desc: 'Lista cuantificada de problemas: tiempo perdido, errores frecuentes, duplicidades y tareas de bajo valor.' },
+          { title: 'Análisis de herramientas', desc: 'Evaluación de qué herramientas usas, cuáles sobran, cuáles faltan y qué integraciones mejorarían la operación.' },
+          { title: 'Resumen ejecutivo', desc: 'Presentación de los hallazgos más importantes para el equipo directivo con lenguaje claro y enfocado en impacto de negocio.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

@@ -1,0 +1,67 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'AI Tools | Automation | ProxyToads'
+const description =
+  'Implementation and configuration of AI tools: GPT-4, Claude, Gemini and more. Integrated with your current systems to multiply your team\'s productivity.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="AI Tools"
+    title="The best AI tools, configured for your business"
+    subtitle="We select, configure and optimise the most powerful AI tools on the market so they fit perfectly into your workflow and deliver measurable results from day one."
+    ctaLabel="Free consultation"
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: 'AI Automation', href: '/automatizacion-ia/' },
+      { label: 'AI Tools', href: '/automatizacion-ia/herramientas-ia/' },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Tools we implement</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">The AI ecosystem at your company's service</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">We don't sell a one-size-fits-all tool. We evaluate your case and choose the AI combination that will deliver the best results for your specific context.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Language models (LLMs)', desc: 'GPT-4o, Claude 3.5, Gemini Pro and Llama for text generation, responses, summaries and content analysis.' },
+          { title: 'RAG & knowledge bases', desc: 'Connect AI to your internal documents so it answers with accurate data from your own company.' },
+          { title: 'Image generation', desc: 'DALL-E, Midjourney and Stable Diffusion for automated visual asset creation.' },
+          { title: 'Transcription & voice', desc: 'Whisper and other models to transcribe meetings, calls and build speech-to-text workflows.' },
+          { title: 'Autonomous AI agents', desc: 'Agents that reason, plan and execute complex multi-step tasks without human intervention.' },
+          { title: 'Analysis & classification', desc: 'Specialised models for document classification, sentiment analysis and structured data extraction.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 border-t border-line">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">How we work</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">From discovery to production</h2>
+      <div class="grid md:grid-cols-4 gap-6">
+        {[
+          { step: '01', title: 'Use case audit', desc: 'We identify where AI can generate the most value in your current operation.' },
+          { step: '02', title: 'Tool selection', desc: 'We choose the optimal tools for your case, budget and technology stack.' },
+          { step: '03', title: 'Integration & setup', desc: 'We connect the AI to your systems and tune it for your specific context.' },
+          { step: '04', title: 'Measurement & optimisation', desc: 'We monitor performance and improve the models with real data.' },
+        ].map(({ step, title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <p class="text-3xl font-bold text-brand/20 mb-4">{step}</p>
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

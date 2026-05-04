@@ -1,0 +1,62 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Digital Roadmap | Audit | ProxyToads'
+const description =
+  'Digital transformation roadmap creation. Prioritised action plan with concrete initiatives, timelines, estimated budget and KPIs to guide your digitalization.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Roadmap · Process Audit"
+    title="The clear path to your digital transformation"
+    subtitle="We turn the findings from the analysis into a concrete, prioritised action plan with clear indicators so you know exactly what to do, when and with what budget."
+    ctaLabel="Request a roadmap"
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: 'Digital Transformation', href: '/transformacion-digital/' },
+      { label: 'Process Audit', href: '/transformacion-digital/auditoria-procesos/' },
+      { label: 'Roadmap', href: '/transformacion-digital/auditoria-procesos/hoja-de-ruta/' },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">What's included</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">A transformation plan ready to execute</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">This is not a generic presentation. It's a plan specific to your business, with initiatives prioritised by impact and ordered in time.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Prioritised initiatives', desc: 'Actions ordered by business impact and ease of implementation, with a justification for each decision.' },
+          { title: 'Phases & timelines', desc: 'Phased plan with estimated duration for each initiative and dependencies clearly marked.' },
+          { title: 'Estimated budget', desc: 'Approximate cost for each initiative: tools, development, training and implementation broken down.' },
+          { title: 'Tracking KPIs', desc: 'Specific indicators to measure the success of each initiative and overall transformation progress.' },
+          { title: 'Quick wins identified', desc: 'Fast improvements that can be implemented in weeks with high impact and minimal effort to build momentum.' },
+          { title: 'Change management', desc: 'Recommendations to ensure your team successfully adopts the changes without internal resistance.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        { title: 'Short term (0–3 months)', desc: 'Quick wins and immediate improvements: collaboration tools, document digitalization and first automations.' },
+        { title: 'Medium term (3–9 months)', desc: 'Medium-impact projects: CRM, key integrations, main process automation and team training.' },
+        { title: 'Long term (9–18 months)', desc: 'Deep transformations: new platforms, digital business models and advanced AI capabilities.' },
+      ].map(({ title, desc }) => (
+        <div class="p-8 rounded-xl border border-brand/20 bg-gradient-to-br from-brand/10 via-surface to-surface">
+          <h3 class="font-semibold text-ink mb-3">{title}</h3>
+          <p class="text-dim text-sm leading-relaxed">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</PageLayout>

@@ -1,0 +1,78 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Auditoría de Procesos | Transformación Digital | ProxyToads'
+const description =
+  'Diagnóstico profundo de tus procesos empresariales. Identificamos ineficiencias, cuellos de botella y oportunidades de mejora con análisis detallado y hoja de ruta priorizada.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Auditoría de Procesos"
+    title="Entiende tu empresa antes de transformarla"
+    subtitle="Realizamos un diagnóstico exhaustivo de tus procesos para identificar con precisión qué funciona, qué falla y cuáles son las mejores oportunidades de mejora con mayor retorno."
+    ctaLabel="Solicitar auditoría"
+    ctaHref="mailto:hello@proxytoads.com"
+    ctaSecondaryLabel="Ver etapas"
+    ctaSecondaryHref="#etapas"
+    breadcrumb={[
+      { label: 'Transformación Digital', href: '/es/transformacion-digital/' },
+      { label: 'Auditoría de Procesos', href: '/es/transformacion-digital/auditoria-procesos/' },
+    ]}
+  />
+
+  <section id="etapas" class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Etapas del proceso</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">Un diagnóstico completo en dos fases</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">Nuestro proceso de auditoría sigue una metodología probada que va de lo general a lo específico, asegurando que ningún punto crítico se quede sin analizar.</p>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-3xl">
+        <a href="/es/transformacion-digital/auditoria-procesos/analisis/" class="group p-8 rounded-xl border border-line hover:border-brand/50 transition-colors bg-surface">
+          <div class="w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-ink mb-3 group-hover:text-brand transition-colors">Análisis</h3>
+          <p class="text-dim leading-relaxed mb-4">Mapeo de procesos actuales, entrevistas con el equipo, identificación de cuellos de botella e ineficiencias. Diagnóstico de la situación real.</p>
+          <span class="text-brand text-sm font-medium">Ver más →</span>
+        </a>
+
+        <a href="/es/transformacion-digital/auditoria-procesos/hoja-de-ruta/" class="group p-8 rounded-xl border border-line hover:border-brand/50 transition-colors bg-surface">
+          <div class="w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-ink mb-3 group-hover:text-brand transition-colors">Hoja de ruta</h3>
+          <p class="text-dim leading-relaxed mb-4">Plan de acción priorizado con iniciativas concretas, timelines, presupuesto estimado y KPIs de seguimiento para guiar tu transformación.</p>
+          <span class="text-brand text-sm font-medium">Ver más →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Lo que obtienes</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">Entregables concretos, no presentaciones vacías</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Mapa de procesos As-Is', desc: 'Documentación visual de cómo operan actualmente tus procesos más críticos.' },
+          { title: 'Informe de ineficiencias', desc: 'Lista priorizada de problemas detectados con su impacto estimado en tiempo y costo.' },
+          { title: 'Benchmarking sectorial', desc: 'Comparativa de tu madurez digital frente a empresas similares de tu industria.' },
+          { title: 'Oportunidades de automatización', desc: 'Procesos específicos donde la automatización generaría mayor retorno.' },
+          { title: 'Hoja de ruta digital', desc: 'Plan de acción por fases con prioridades, responsables y estimaciones de inversión.' },
+          { title: 'Sesión de presentación', desc: 'Presentación de hallazgos y plan con tu equipo directivo con espacio para preguntas.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

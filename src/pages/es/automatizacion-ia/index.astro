@@ -1,0 +1,117 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Automatización con IA | ProxyToads'
+const description =
+  'Automatiza tareas repetitivas con Inteligencia Artificial. Chatbots, herramientas de IA y flujos n8n para pymes y empresas. Más productividad desde el primer día.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Automatización con IA"
+    title="Convierte la IA en tu mayor ventaja competitiva"
+    subtitle="Diseñamos soluciones de automatización con Inteligencia Artificial que eliminan el trabajo repetitivo, aceleran procesos y liberan a tu equipo para lo que realmente importa."
+    ctaLabel="Hablar con un experto"
+    ctaHref="mailto:hello@proxytoads.com"
+    ctaSecondaryLabel="Ver soluciones"
+    ctaSecondaryHref="#soluciones"
+    breadcrumb={[{ label: 'Automatización con IA', href: '/es/automatizacion-ia/' }]}
+  />
+
+  <section id="soluciones" class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Nuestras soluciones</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">
+        Automatización inteligente de principio a fin
+      </h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">
+        Desde el primer chatbot hasta flujos de automatización complejos, acompañamos a tu empresa en cada paso de la transformación.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <a href="/es/automatizacion-ia/chatbot-ia/" class="group p-8 rounded-xl border border-line hover:border-brand/50 transition-colors bg-surface">
+          <div class="w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-ink mb-3 group-hover:text-brand transition-colors">Chatbot con IA</h3>
+          <p class="text-dim leading-relaxed mb-4">Asistentes conversacionales para WhatsApp y web que atienden a tus clientes 24/7 con respuestas precisas y naturales.</p>
+          <span class="text-brand text-sm font-medium">Explorar →</span>
+        </a>
+
+        <a href="/es/automatizacion-ia/herramientas-ia/" class="group p-8 rounded-xl border border-line hover:border-brand/50 transition-colors bg-surface">
+          <div class="w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-ink mb-3 group-hover:text-brand transition-colors">Herramientas de IA</h3>
+          <p class="text-dim leading-relaxed mb-4">Implementamos y configuramos las mejores herramientas de IA del mercado adaptadas a tu sector y flujos de trabajo.</p>
+          <span class="text-brand text-sm font-medium">Explorar →</span>
+        </a>
+
+        <a href="/es/automatizacion-ia/flujos-n8n/" class="group p-8 rounded-xl border border-line hover:border-brand/50 transition-colors bg-surface">
+          <div class="w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-ink mb-3 group-hover:text-brand transition-colors">Flujos con n8n</h3>
+          <p class="text-dim leading-relaxed mb-4">Automatizaciones complejas con n8n que conectan todas tus apps y eliminan el trabajo manual entre sistemas.</p>
+          <span class="text-brand text-sm font-medium">Explorar →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">70%</p>
+        <p class="text-dim text-sm">Reducción de trabajo manual</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">24/7</p>
+        <p class="text-dim text-sm">Disponibilidad automatizada</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">+500</p>
+        <p class="text-dim text-sm">Flujos implementados</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">3×</p>
+        <p class="text-dim text-sm">Productividad del equipo</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Por qué elegirnos</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">
+        IA que genera resultados reales, no solo demos
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl">
+        {[
+          'Soluciones a medida, no plantillas genéricas',
+          'Integración con tus sistemas y herramientas existentes',
+          'Implementación rápida: resultados en semanas, no meses',
+          'Soporte continuo y mejora iterativa del rendimiento',
+          'Equipo experto en IA, automatización y arquitectura de datos',
+          'ROI demostrable desde los primeros 90 días',
+        ].map(item => (
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-brand/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p class="text-dim">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

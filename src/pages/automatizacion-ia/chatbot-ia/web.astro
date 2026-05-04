@@ -1,0 +1,66 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'AI Chatbot for Web | ProxyToads'
+const description =
+  'AI chatbot embedded on your website. Customisable widget, 24/7 availability, lead capture, human agent handoff and real-time conversation analytics.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="AI Chatbot · Web"
+    title="Turn every visit into a conversation"
+    subtitle="We embed an AI chatbot on your website that captures leads, answers FAQs and guides visitors toward conversion — without your team needing to be present."
+    ctaLabel="Request a demo"
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: 'AI Automation', href: '/automatizacion-ia/' },
+      { label: 'AI Chatbot', href: '/automatizacion-ia/chatbot-ia/' },
+      { label: 'Web', href: '/automatizacion-ia/chatbot-ia/web/' },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Features</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">A widget that works for you while you sleep</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">100% customisable with your brand's colours, tone and voice. Your visitors won't even notice it's a bot.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Customisable widget', desc: 'Colours, logo, typography and tone of voice matched to your brand. Discreet or proactive — your choice.' },
+          { title: 'Lead capture', desc: 'Collects name, email and phone conversationally and naturally, with higher conversion rates than a static form.' },
+          { title: 'Answers from your content', desc: 'The chatbot learns from your website, documents and FAQs to respond with accurate, up-to-date information.' },
+          { title: 'Multi-language support', desc: 'Detects the visitor\'s language and responds accordingly. Perfect for companies with an international presence.' },
+          { title: 'Live agent handoff', desc: 'When the chatbot can\'t resolve something, it transfers the visitor to a human agent with full conversation context.' },
+          { title: 'Conversation analytics', desc: 'Dashboard with usage metrics, top questions, resolution rate and detected improvement opportunities.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Integration</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">Works with your existing stack</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          { title: 'One line of code', desc: 'Install with a JavaScript snippet. Compatible with any website or CMS: WordPress, Webflow, Shopify, Astro…' },
+          { title: 'CRM connection', desc: 'Leads and conversations automatically synced with HubSpot, Salesforce, Pipedrive and 50+ CRMs.' },
+          { title: 'Team notifications', desc: 'Alerts via Slack, Teams or email when a qualified lead needs human follow-up.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

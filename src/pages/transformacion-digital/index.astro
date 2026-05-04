@@ -1,0 +1,111 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Digital Transformation | ProxyToads'
+const description =
+  'Guide your business through digital transformation with process audits, SME digitalization and workflow automation. Practical consulting with measurable results.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Digital Transformation"
+    title="From idea to outcome: digitalization that works"
+    subtitle="We guide companies through their digital transformation journey with a practical, measurable approach tailored to their reality. No buzzwords, just real impact."
+    ctaLabel="Request a diagnosis"
+    ctaHref="mailto:hello@proxytoads.com"
+    ctaSecondaryLabel="See services"
+    ctaSecondaryHref="#services"
+    breadcrumb={[{ label: 'Digital Transformation', href: '/transformacion-digital/' }]}
+  />
+
+  <section id="services" class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Our services</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">
+        A clear path to the company of the future
+      </h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">
+        Every business is unique. That's why our approach starts by understanding your current situation before proposing solutions.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <a href="/transformacion-digital/auditoria-procesos/" class="group p-8 rounded-xl border border-line hover:border-brand/50 transition-colors bg-surface">
+          <div class="w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-ink mb-3 group-hover:text-brand transition-colors">Process Audit</h3>
+          <p class="text-dim leading-relaxed mb-4">We analyse how your business operates today, identify inefficiencies and define the improvement opportunities with the greatest impact.</p>
+          <span class="text-brand text-sm font-medium">Explore →</span>
+        </a>
+
+        <a href="/transformacion-digital/digitalizacion-pymes/" class="group p-8 rounded-xl border border-line hover:border-brand/50 transition-colors bg-surface">
+          <div class="w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-ink mb-3 group-hover:text-brand transition-colors">SME Digitalization</h3>
+          <p class="text-dim leading-relaxed mb-4">We take small and medium-sized businesses into the digital world with the right tools and a plan suited to their budget.</p>
+          <span class="text-brand text-sm font-medium">Explore →</span>
+        </a>
+
+        <a href="/transformacion-digital/automatizacion-procesos/" class="group p-8 rounded-xl border border-line hover:border-brand/50 transition-colors bg-surface">
+          <div class="w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-ink mb-3 group-hover:text-brand transition-colors">Process Automation</h3>
+          <p class="text-dim leading-relaxed mb-4">We eliminate manual work with digital workflows, system integrations and software robots that run on their own.</p>
+          <span class="text-brand text-sm font-medium">Explore →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">+200</p>
+        <p class="text-dim text-sm">Businesses transformed</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">45 days</p>
+        <p class="text-dim text-sm">Average implementation time</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">3×</p>
+        <p class="text-dim text-sm">Average first-year ROI</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">−60%</p>
+        <p class="text-dim text-sm">Reduction in operating costs</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Our approach</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">
+        Digital transformation without chaos or uncertainty
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          { step: '01', title: 'Diagnosis', desc: 'We analyse your current situation, processes and goals to understand exactly where you are and where you want to go.' },
+          { step: '02', title: 'Roadmap', desc: 'We design a prioritised transformation plan with the right technologies, realistic timelines and a clear budget.' },
+          { step: '03', title: 'Implementation', desc: 'We execute the plan with agility, iterating based on results and ensuring the team adopts changes successfully.' },
+        ].map(({ step, title, desc }) => (
+          <div class="p-8 rounded-xl border border-line bg-surface">
+            <p class="text-5xl font-bold text-brand/20 mb-4">{step}</p>
+            <h3 class="text-xl font-semibold text-ink mb-3">{title}</h3>
+            <p class="text-dim leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

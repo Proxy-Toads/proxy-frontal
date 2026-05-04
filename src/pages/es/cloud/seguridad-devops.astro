@@ -1,0 +1,68 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Seguridad y DevOps | Cloud | ProxyToads'
+const description =
+  'Seguridad cloud y prácticas DevOps para equipos modernos. CI/CD, monitorización, gestión de secretos y protección proactiva para desplegar rápido sin comprometer la seguridad.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Seguridad / DevOps"
+    title="Velocidad y seguridad sin tener que elegir entre las dos"
+    subtitle="Implementamos prácticas DevSecOps que permiten a tu equipo desplegar con confianza y frecuencia, sin comprometer la seguridad ni la estabilidad de producción."
+    ctaLabel="Auditoría de seguridad"
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: 'Cloud', href: '/es/cloud/' },
+      { label: 'Seguridad / DevOps', href: '/es/cloud/seguridad-devops/' },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">DevOps</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">Pipelines que entregan software mejor y más rápido</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">Construimos la infraestructura y los procesos que permiten a tu equipo de desarrollo moverse rápido con confianza.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'CI/CD Pipelines', desc: 'Integración y despliegue continuo con GitHub Actions, GitLab CI o Bitbucket Pipelines para entregas automáticas y seguras.' },
+          { title: 'Infrastructure as Code', desc: 'Terraform y Pulumi para gestionar tu infraestructura como código: versionada, reproducible y auditada.' },
+          { title: 'Monitorización y alertas', desc: 'Observabilidad completa con Prometheus, Grafana, Datadog o CloudWatch para detectar problemas antes de que impacten.' },
+          { title: 'Gestión de secretos', desc: 'HashiCorp Vault, AWS Secrets Manager y rotación automática de credenciales para nunca exponer claves sensibles.' },
+          { title: 'Gestión de logs', desc: 'Centralización, indexación y alertas sobre logs para detectar anomalías y depurar problemas en segundos.' },
+          { title: 'Disaster Recovery', desc: 'Estrategias de backup, RPO/RTO definidos y playbooks probados para recuperarte de cualquier incidente.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Seguridad</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">Protección proactiva en cada capa de tu infraestructura</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Gestión de identidades (IAM)', desc: 'Principio de mínimo privilegio, MFA y control de acceso basado en roles para proteger quién accede a qué.' },
+          { title: 'Análisis de vulnerabilidades', desc: 'Escaneo continuo de contenedores, dependencias e infraestructura para detectar vulnerabilidades antes de que sean explotadas.' },
+          { title: 'Cifrado en reposo y en tránsito', desc: 'AES-256, TLS 1.3 y gestión de certificados automatizada para proteger todos tus datos.' },
+          { title: 'Compliance y auditoría', desc: 'Cumplimiento con GDPR, ISO 27001, SOC 2 y otras normativas con registros de auditoría completos.' },
+          { title: 'WAF y protección DDoS', desc: 'Cortafuegos de aplicaciones web y mitigación de ataques de denegación de servicio a nivel de red y aplicación.' },
+          { title: 'Pentesting y revisión de código', desc: 'Pruebas de penetración periódicas y revisión de seguridad de código para detectar puntos débiles reales.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

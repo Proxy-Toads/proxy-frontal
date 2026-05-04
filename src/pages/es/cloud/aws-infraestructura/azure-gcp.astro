@@ -1,0 +1,86 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Azure y Google Cloud Platform | ProxyToads'
+const description =
+  'Migración y gestión en Microsoft Azure y Google Cloud Platform. Estrategia multi-cloud, arquitectura de soluciones y optimización para empresas que no quieren depender de un solo proveedor.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Azure / GCP · Infraestructura"
+    title="Microsoft Azure y Google Cloud al servicio de tu empresa"
+    subtitle="Te ayudamos a aprovechar lo mejor de Microsoft Azure y Google Cloud Platform con estrategias multi-cloud, arquitecturas robustas y gestión continua para que elijas el mejor proveedor para cada caso."
+    ctaLabel="Consultar estrategia cloud"
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: 'Cloud', href: '/es/cloud/' },
+      { label: 'AWS / Infraestructura', href: '/es/cloud/aws-infraestructura/' },
+      { label: 'Azure / GCP', href: '/es/cloud/aws-infraestructura/azure-gcp/' },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Microsoft Azure</p>
+          <h2 class="text-2xl font-bold text-ink mb-4">La nube de Microsoft para entornos empresariales</h2>
+          <p class="text-dim mb-8 leading-relaxed">La elección natural para empresas que ya viven en el ecosistema Microsoft. Integración nativa con Office 365, Active Directory y todo el stack de productividad empresarial.</p>
+          <div class="space-y-4">
+            {[
+              { title: 'Azure Active Directory', desc: 'Gestión de identidades y accesos integrada con tu Active Directory corporativo.' },
+              { title: 'Azure DevOps', desc: 'Pipelines CI/CD, repos y gestión de proyectos en un entorno Microsoft nativo.' },
+              { title: 'Azure OpenAI Service', desc: 'Acceso a modelos GPT-4 y otros LLMs directamente en tu infraestructura Azure.' },
+              { title: 'Azure Kubernetes Service', desc: 'Kubernetes gestionado con integración profunda con el ecosistema Microsoft.' },
+            ].map(({ title, desc }) => (
+              <div class="p-4 rounded-lg border border-line bg-surface">
+                <h3 class="font-medium text-ink mb-1">{title}</h3>
+                <p class="text-dim text-sm">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Google Cloud Platform</p>
+          <h2 class="text-2xl font-bold text-ink mb-4">La infraestructura que mueve Google, para tu empresa</h2>
+          <p class="text-dim mb-8 leading-relaxed">La mejor red de infraestructura del mundo y las herramientas de IA y analytics más avanzadas del mercado. Ideal para empresas con grandes volúmenes de datos o necesidades de ML.</p>
+          <div class="space-y-4">
+            {[
+              { title: 'BigQuery', desc: 'Data warehouse serverless para analizar terabytes de datos en segundos a un costo mínimo.' },
+              { title: 'Vertex AI', desc: 'Plataforma unificada para entrenar, desplegar y gestionar modelos de machine learning.' },
+              { title: 'GKE (Google Kubernetes Engine)', desc: 'Kubernetes donde nació: el entorno de orquestación de contenedores más maduro y completo.' },
+              { title: 'Cloud Run', desc: 'Contenedores serverless que escalan a cero automáticamente. Sin gestión de clusters.' },
+            ].map(({ title, desc }) => (
+              <div class="p-4 rounded-lg border border-line bg-surface">
+                <h3 class="font-medium text-ink mb-1">{title}</h3>
+                <p class="text-dim text-sm">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Estrategia multi-cloud</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">¿Cuándo usar cada proveedor?</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          { title: 'Elige AWS si...', desc: 'Necesitas el ecosistema más amplio de servicios, la mayor comunidad y el liderazgo indiscutido del mercado cloud.' },
+          { title: 'Elige Azure si...', desc: 'Ya usas Microsoft 365, Active Directory o productos Microsoft y quieres integración nativa sin fricciones.' },
+          { title: 'Elige GCP si...', desc: 'Tu empresa trabaja con grandes volúmenes de datos, machine learning o quieres la mejor infraestructura de red global.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

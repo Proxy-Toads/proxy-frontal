@@ -1,0 +1,78 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Chatbot con IA | Automatización | ProxyToads'
+const description =
+  'Chatbots inteligentes con IA para WhatsApp y web. Atención al cliente 24/7 con lenguaje natural, integración CRM y flujos personalizados para tu negocio.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Chatbot con IA"
+    title="Chatbots que hablan como personas, trabajan como máquinas"
+    subtitle="Desarrollamos asistentes conversacionales con IA que entienden el lenguaje natural y dan respuestas precisas a tus clientes en cualquier canal, a cualquier hora."
+    ctaLabel="Solicitar demo"
+    ctaHref="mailto:hello@proxytoads.com"
+    ctaSecondaryLabel="Ver canales"
+    ctaSecondaryHref="#canales"
+    breadcrumb={[
+      { label: 'Automatización con IA', href: '/es/automatizacion-ia/' },
+      { label: 'Chatbot con IA', href: '/es/automatizacion-ia/chatbot-ia/' },
+    ]}
+  />
+
+  <section id="canales" class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Canales disponibles</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">Donde están tus clientes, está tu chatbot</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">Desplegamos tu asistente IA en los canales donde ya se comunican tus clientes, sin fricción ni cambios de plataforma.</p>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-3xl">
+        <a href="/es/automatizacion-ia/chatbot-ia/whatsapp/" class="group p-8 rounded-xl border border-line hover:border-brand/50 transition-colors bg-surface">
+          <div class="w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-ink mb-3 group-hover:text-brand transition-colors">WhatsApp</h3>
+          <p class="text-dim leading-relaxed mb-4">Chatbot conectado a tu WhatsApp Business. Responde automáticamente, gestiona pedidos y cualifica leads sin intervención humana.</p>
+          <span class="text-brand text-sm font-medium">Ver más →</span>
+        </a>
+
+        <a href="/es/automatizacion-ia/chatbot-ia/web/" class="group p-8 rounded-xl border border-line hover:border-brand/50 transition-colors bg-surface">
+          <div class="w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-ink mb-3 group-hover:text-brand transition-colors">Web</h3>
+          <p class="text-dim leading-relaxed mb-4">Widget de chat embebido en tu sitio web. Captura leads, responde dudas y guía a los visitantes hacia la conversión mientras duermes.</p>
+          <span class="text-brand text-sm font-medium">Ver más →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Capacidades</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">Lo que puede hacer tu chatbot</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Comprensión de lenguaje natural', desc: 'Entiende preguntas con errores, variaciones y contexto, igual que lo haría un humano.' },
+          { title: 'Conversaciones multi-turno', desc: 'Mantiene el contexto de la conversación completa, no solo la última pregunta.' },
+          { title: 'Escalado a humanos', desc: 'Detecta cuándo transferir la conversación a un agente real con contexto completo.' },
+          { title: 'Integración con CRM', desc: 'Registra leads, actualiza contactos y sincroniza datos con tu CRM automáticamente.' },
+          { title: 'Respuestas con documentos', desc: 'Responde con base en tus documentos, FAQs, catálogos y bases de conocimiento.' },
+          { title: 'Análisis de conversaciones', desc: 'Panel con métricas, preguntas frecuentes y oportunidades de mejora detectadas por IA.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

@@ -1,0 +1,79 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'n8n Workflows | Automation | ProxyToads'
+const description =
+  'Workflow automation with n8n. Connect your CRM, email, Slack, databases and 400+ apps to eliminate manual work between systems — no code required.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="n8n Workflows"
+    title="Connect everything. Automate everything. With n8n."
+    subtitle="We design automation workflows in n8n that connect your tools, eliminate manual work between systems and put your business on autopilot."
+    ctaLabel="See a demo"
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: 'AI Automation', href: '/automatizacion-ia/' },
+      { label: 'n8n Workflows', href: '/automatizacion-ia/flujos-n8n/' },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Use cases</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">What can you automate with n8n?</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">Almost any repetitive task involving moving data between systems has a solution in n8n. Here are the most common ones.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'CRM synchronisation', desc: 'Update contacts, deals and tasks between your CRM, email and other platforms without manual intervention.' },
+          { title: 'Automated notifications', desc: 'Send alerts to Slack, Teams or email when key business events occur.' },
+          { title: 'Lead management', desc: 'Capture leads from forms, qualify them with AI and automatically route them to your sales team.' },
+          { title: 'Invoicing & accounting', desc: 'Generate invoices, record payments and sync financial data between platforms without touching anything.' },
+          { title: 'Client onboarding', desc: 'Automate the entire process: welcome messages, access, documentation and post-sale follow-up.' },
+          { title: 'Automated reports', desc: 'Generate and send periodic reports with up-to-date data from all your information sources.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">+400</p>
+        <p class="text-dim text-sm">Native integrations</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">∞</p>
+        <p class="text-dim text-sm">Monthly executions</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">Self</p>
+        <p class="text-dim text-sm">Hosted on your infrastructure</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">0</p>
+        <p class="text-dim text-sm">Code needed to use it</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Popular integrations</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">Connects with the tools you already use</h2>
+      <div class="flex flex-wrap gap-3">
+        {['HubSpot', 'Salesforce', 'Gmail', 'Slack', 'Notion', 'Airtable', 'Google Sheets', 'WhatsApp Business', 'Stripe', 'Shopify', 'WordPress', 'PostgreSQL', 'MySQL', 'OpenAI', 'Anthropic Claude', 'Zapier', 'Typeform', 'Calendly', 'Twilio', 'Mailchimp'].map(tool => (
+          <span class="px-4 py-2 rounded-full border border-line bg-surface text-dim text-sm">{tool}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

@@ -1,0 +1,93 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'SME Digitalization | Digital Transformation | ProxyToads'
+const description =
+  'Complete digitalization for small and medium-sized businesses. Go paperless, adopt digital tools and modernise your operations with a realistic plan and a clear budget.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="SME Digitalization"
+    title="Your SME, digitalized and ready to grow"
+    subtitle="We take small and medium-sized businesses into the digital world with the right tools, a plan adapted to their budget and hands-on support at every step of the way."
+    ctaLabel="Get started"
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: 'Digital Transformation', href: '/transformacion-digital/' },
+      { label: 'SME Digitalization', href: '/transformacion-digital/digitalizacion-pymes/' },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Digitalization areas</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">Everything your SME needs to make the digital leap</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">We approach digitalization holistically, prioritising the areas with the greatest impact on your operations and profitability.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Paperless office', desc: 'Digitalize contracts, invoices, delivery notes and internal documentation. Everything accessible from any device.' },
+          { title: 'Customer management (CRM)', desc: 'Implementation and configuration of a CRM tailored to your team for managing customers and sales opportunities.' },
+          { title: 'Electronic invoicing', desc: 'Digital invoicing adoption with regulatory compliance and connection to your accounting system.' },
+          { title: 'Internal communication', desc: 'Communication and collaboration tools so your team works better from anywhere.' },
+          { title: 'Digital presence', desc: 'Professional website, Google My Business and social media presence configured to generate business.' },
+          { title: 'Cloud storage', desc: 'File migration to the cloud with secure access, version control and real-time collaboration.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">−80%</p>
+        <p class="text-dim text-sm">Paper reduction</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">45 days</p>
+        <p class="text-dim text-sm">Full digitalization</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">+150</p>
+        <p class="text-dim text-sm">SMEs digitalized</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">2×</p>
+        <p class="text-dim text-sm">Operational speed</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Our commitment</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">Why SMEs trust ProxyToads</h2>
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl">
+        {[
+          'Transparent pricing adapted to the size of your business',
+          'Training included so your team uses the tools with confidence',
+          'No technical jargon: we explain everything in plain language',
+          'Post-implementation support to resolve any questions',
+          'Phased plan so you don\'t take on all costs at once',
+          'Open-source tools where possible to reduce recurring costs',
+        ].map(item => (
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-brand/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p class="text-dim">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

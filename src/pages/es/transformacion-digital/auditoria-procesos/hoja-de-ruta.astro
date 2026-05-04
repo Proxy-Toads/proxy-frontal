@@ -1,0 +1,62 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Hoja de Ruta Digital | Auditoría | ProxyToads'
+const description =
+  'Creación de hoja de ruta para transformación digital. Plan de acción priorizado con iniciativas concretas, timelines, presupuesto estimado y KPIs para guiar tu digitalización.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Hoja de Ruta · Auditoría de Procesos"
+    title="El camino claro hacia tu transformación digital"
+    subtitle="Transformamos los hallazgos del análisis en un plan de acción concreto, priorizado y con indicadores claros para que sepas exactamente qué hacer, cuándo y con qué presupuesto."
+    ctaLabel="Solicitar hoja de ruta"
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: 'Transformación Digital', href: '/es/transformacion-digital/' },
+      { label: 'Auditoría de Procesos', href: '/es/transformacion-digital/auditoria-procesos/' },
+      { label: 'Hoja de ruta', href: '/es/transformacion-digital/auditoria-procesos/hoja-de-ruta/' },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Qué incluye</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">Un plan de transformación listo para ejecutar</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">No es una presentación genérica. Es un plan específico para tu empresa, con iniciativas priorizadas por impacto y ordenadas en el tiempo.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Iniciativas priorizadas', desc: 'Lista de acciones ordenadas por impacto en el negocio y facilidad de implementación, con justificación de cada decisión.' },
+          { title: 'Fases y timelines', desc: 'Plan por fases con duración estimada de cada iniciativa y dependencias entre proyectos claramente marcadas.' },
+          { title: 'Presupuesto estimado', desc: 'Coste aproximado de cada iniciativa: herramientas, desarrollo, formación e implementación desglosados.' },
+          { title: 'KPIs de seguimiento', desc: 'Indicadores específicos para medir el éxito de cada iniciativa y el avance general de la transformación.' },
+          { title: 'Quick wins identificados', desc: 'Mejoras rápidas que se pueden implementar en semanas con alto impacto y mínimo esfuerzo para generar impulso.' },
+          { title: 'Gestión del cambio', desc: 'Recomendaciones para que el equipo adopte los cambios con éxito y no haya resistencia interna.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        { title: 'Corto plazo (0–3 meses)', desc: 'Quick wins y mejoras inmediatas: herramientas de colaboración, digitalización de documentos y primeras automatizaciones.' },
+        { title: 'Medio plazo (3–9 meses)', desc: 'Proyectos de impacto medio: CRM, integraciones clave, automatización de procesos principales y formación del equipo.' },
+        { title: 'Largo plazo (9–18 meses)', desc: 'Transformaciones profundas: nuevas plataformas, modelos de negocio digitales y capacidades avanzadas de IA.' },
+      ].map(({ title, desc }) => (
+        <div class="p-8 rounded-xl border border-brand/20 bg-gradient-to-br from-brand/10 via-surface to-surface">
+          <h3 class="font-semibold text-ink mb-3">{title}</h3>
+          <p class="text-dim text-sm leading-relaxed">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</PageLayout>

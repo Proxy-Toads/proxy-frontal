@@ -1,0 +1,86 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+
+const title = 'Automatización de Procesos | Transformación Digital | ProxyToads'
+const description =
+  'Automatiza los procesos operativos de tu empresa con workflows digitales, integración de sistemas y robots de software. Más eficiencia, menos errores, equipos más productivos.'
+---
+
+<PageLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Automatización de Procesos"
+    title="Procesos más rápidos, equipos más productivos"
+    subtitle="Automatizamos los procesos operativos de tu empresa para reducir errores, acelerar tiempos y liberar a tu equipo del trabajo mecánico para que pueda enfocarse en lo que genera valor."
+    ctaLabel="Análisis gratuito"
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: 'Transformación Digital', href: '/es/transformacion-digital/' },
+      { label: 'Automatización de Procesos', href: '/es/transformacion-digital/automatizacion-procesos/' },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Qué automatizamos</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">Cualquier proceso repetitivo puede automatizarse</h2>
+      <p class="text-dim text-lg max-w-2xl mb-16">Si tu equipo hace la misma tarea más de dos veces por semana siguiendo pasos fijos, probablemente podemos automatizarla.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Gestión de pedidos', desc: 'Recepción, validación, asignación y seguimiento de pedidos de forma completamente automática.' },
+          { title: 'Aprobaciones y flujos internos', desc: 'Workflows de aprobación, revisión y firma de documentos sin correos ni bloqueos.' },
+          { title: 'Reportes y dashboards', desc: 'Generación automática de informes periódicos con datos actualizados de todas tus fuentes.' },
+          { title: 'Atención al cliente', desc: 'Respuestas automáticas, escalado inteligente y registro de incidencias sin trabajo manual.' },
+          { title: 'Recursos humanos', desc: 'Onboarding de empleados, gestión de vacaciones y comunicaciones internas automatizadas.' },
+          { title: 'Contabilidad y pagos', desc: 'Conciliación de pagos, generación de facturas y alertas de vencimiento sin intervención.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">−90%</p>
+        <p class="text-dim text-sm">Errores en procesos</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">5×</p>
+        <p class="text-dim text-sm">Velocidad de ejecución</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">24/7</p>
+        <p class="text-dim text-sm">Procesos activos</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-brand mb-2">€0</p>
+        <p class="text-dim text-sm">Costo de horas ahorradas</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">Tecnologías</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-xl">Las mejores herramientas para cada tipo de automatización</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          { title: 'n8n y Make', desc: 'Para workflows de integración entre apps y automatizaciones sin código de media complejidad.' },
+          { title: 'Python y APIs', desc: 'Para automatizaciones personalizadas complejas que requieren lógica de negocio específica.' },
+          { title: 'RPA (Robotic Process Automation)', desc: 'Para automatizar tareas en aplicaciones legacy o interfaces que no tienen API disponible.' },
+        ].map(({ title, desc }) => (
+          <div class="p-6 rounded-xl border border-line bg-surface">
+            <h3 class="font-semibold text-ink mb-2">{title}</h3>
+            <p class="text-dim text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>
