@@ -1,0 +1,85 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Card from '@/components/ui/Card.astro'
+import { Icon } from 'astro-icon/components'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const base = lang === 'en' ? '' : `/${lang}`
+
+const solutions = [
+  { icon: 'lucide:bot', href: `${base}/automatizacion-ia/chatbot-ia/`, title: t('pg.ai.sol.1.title'), desc: t('pg.ai.sol.1.desc') },
+  { icon: 'lucide:brain-circuit', href: `${base}/automatizacion-ia/herramientas-ia/`, title: t('pg.ai.sol.2.title'), desc: t('pg.ai.sol.2.desc') },
+  { icon: 'lucide:workflow', href: `${base}/automatizacion-ia/flujos-n8n/`, title: t('pg.ai.sol.3.title'), desc: t('pg.ai.sol.3.desc') },
+]
+
+const stats = [
+  { val: t('pg.ai.stat.1.val'), label: t('pg.ai.stat.1.label') },
+  { val: t('pg.ai.stat.2.val'), label: t('pg.ai.stat.2.label') },
+  { val: t('pg.ai.stat.3.val'), label: t('pg.ai.stat.3.label') },
+  { val: t('pg.ai.stat.4.val'), label: t('pg.ai.stat.4.label') },
+]
+
+const why = [t('pg.ai.why.1'), t('pg.ai.why.2'), t('pg.ai.why.3'), t('pg.ai.why.4'), t('pg.ai.why.5'), t('pg.ai.why.6')]
+---
+
+<PageLayout title={t('pg.ai.meta.title')} description={t('pg.ai.meta.desc')}>
+  <PageHero
+    eyebrow={t('pg.ai.hero.eyebrow')}
+    title={t('pg.ai.hero.title')}
+    subtitle={t('pg.ai.hero.sub')}
+    ctaLabel={t('pg.ai.hero.cta1')}
+    ctaHref="mailto:hello@proxytoads.com"
+    ctaSecondaryLabel={t('pg.ai.hero.cta2')}
+    ctaSecondaryHref="#solutions"
+    breadcrumb={[{ label: t('pg.ai.hero.eyebrow'), href: `${base}/automatizacion-ia/` }]}
+  />
+
+  <section id="solutions" class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.ai.sol.eyebrow')} headline={t('pg.ai.sol.title')} sub={t('pg.ai.sol.sub')} />
+      <div class="grid md:grid-cols-3 gap-6">
+        {solutions.map(s => (
+          <Card href={s.href}>
+            <div class="w-11 h-11 rounded-lg bg-brand/10 flex items-center justify-center mb-4 group-hover:bg-brand/20 transition-colors">
+              <Icon name={s.icon} class="w-5 h-5 text-brand" />
+            </div>
+            <h3 class="font-semibold text-ink mb-2">{s.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{s.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {stats.map(s => (
+        <div>
+          <p class="text-4xl font-bold text-brand mb-2">{s.val}</p>
+          <p class="text-dim text-sm">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.ai.why.eyebrow')} headline={t('pg.ai.why.title')} />
+      <ul class="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+        {why.map(item => (
+          <li class="flex items-center gap-3">
+            <span class="w-5 h-5 rounded-full bg-brand/15 flex items-center justify-center shrink-0">
+              <Icon name="lucide:check" class="w-3 h-3 text-brand" />
+            </span>
+            <span class="text-dim">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</PageLayout>

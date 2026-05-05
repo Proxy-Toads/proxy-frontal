@@ -1,0 +1,70 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Card from '@/components/ui/Card.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const base = lang === 'en' ? '' : `/${lang}`
+
+const stages = [
+  { href: `${base}/transformacion-digital/auditoria-procesos/analisis/`, title: t('pg.audit.stages.1.title'), desc: t('pg.audit.stages.1.desc') },
+  { href: `${base}/transformacion-digital/auditoria-procesos/hoja-de-ruta/`, title: t('pg.audit.stages.2.title'), desc: t('pg.audit.stages.2.desc') },
+]
+
+const deliverables = [
+  { title: t('pg.audit.del.1.title'), desc: t('pg.audit.del.1.desc') },
+  { title: t('pg.audit.del.2.title'), desc: t('pg.audit.del.2.desc') },
+  { title: t('pg.audit.del.3.title'), desc: t('pg.audit.del.3.desc') },
+  { title: t('pg.audit.del.4.title'), desc: t('pg.audit.del.4.desc') },
+  { title: t('pg.audit.del.5.title'), desc: t('pg.audit.del.5.desc') },
+  { title: t('pg.audit.del.6.title'), desc: t('pg.audit.del.6.desc') },
+]
+---
+
+<PageLayout title={t('pg.audit.meta.title')} description={t('pg.audit.meta.desc')}>
+  <PageHero
+    eyebrow={t('pg.audit.hero.eyebrow')}
+    title={t('pg.audit.hero.title')}
+    subtitle={t('pg.audit.hero.sub')}
+    ctaLabel={t('pg.audit.hero.cta1')}
+    ctaHref="mailto:hello@proxytoads.com"
+    ctaSecondaryLabel={t('pg.audit.hero.cta2')}
+    ctaSecondaryHref="#stages"
+    breadcrumb={[
+      { label: t('pg.dt.hero.eyebrow'), href: `${base}/transformacion-digital/` },
+      { label: t('pg.audit.hero.eyebrow'), href: `${base}/transformacion-digital/auditoria-procesos/` },
+    ]}
+  />
+
+  <section id="stages" class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.audit.stages.eyebrow')} headline={t('pg.audit.stages.title')} sub={t('pg.audit.stages.sub')} />
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {stages.map(s => (
+          <Card href={s.href}>
+            <h3 class="font-semibold text-ink mb-2 group-hover:text-brand transition-colors">{s.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{s.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.audit.del.eyebrow')} headline={t('pg.audit.del.title')} />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {deliverables.map(d => (
+          <Card>
+            <h3 class="font-semibold text-ink mb-2">{d.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{d.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

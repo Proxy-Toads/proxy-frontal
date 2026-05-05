@@ -1,0 +1,71 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Card from '@/components/ui/Card.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const base = lang === 'en' ? '' : `/${lang}`
+
+const tools = [
+  { title: t('pg.tools.t1.title'), desc: t('pg.tools.t1.desc') },
+  { title: t('pg.tools.t2.title'), desc: t('pg.tools.t2.desc') },
+  { title: t('pg.tools.t3.title'), desc: t('pg.tools.t3.desc') },
+  { title: t('pg.tools.t4.title'), desc: t('pg.tools.t4.desc') },
+  { title: t('pg.tools.t5.title'), desc: t('pg.tools.t5.desc') },
+  { title: t('pg.tools.t6.title'), desc: t('pg.tools.t6.desc') },
+]
+
+const steps = [
+  { num: '01', title: t('pg.tools.s1.title'), desc: t('pg.tools.s1.desc') },
+  { num: '02', title: t('pg.tools.s2.title'), desc: t('pg.tools.s2.desc') },
+  { num: '03', title: t('pg.tools.s3.title'), desc: t('pg.tools.s3.desc') },
+  { num: '04', title: t('pg.tools.s4.title'), desc: t('pg.tools.s4.desc') },
+]
+---
+
+<PageLayout title={t('pg.tools.meta.title')} description={t('pg.tools.meta.desc')}>
+  <PageHero
+    eyebrow={t('pg.tools.hero.eyebrow')}
+    title={t('pg.tools.hero.title')}
+    subtitle={t('pg.tools.hero.sub')}
+    ctaLabel={t('pg.tools.hero.cta1')}
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: t('pg.ai.hero.eyebrow'), href: `${base}/automatizacion-ia/` },
+      { label: t('pg.tools.hero.eyebrow'), href: `${base}/automatizacion-ia/herramientas-ia/` },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.tools.list.eyebrow')} headline={t('pg.tools.list.title')} sub={t('pg.tools.list.sub')} />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {tools.map(item => (
+          <Card>
+            <h3 class="font-semibold text-ink mb-2">{item.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{item.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.tools.how.eyebrow')} headline={t('pg.tools.how.title')} />
+      <div class="grid md:grid-cols-4 gap-6">
+        {steps.map(s => (
+          <Card>
+            <p class="text-3xl font-bold text-brand/20 mb-4">{s.num}</p>
+            <h3 class="font-semibold text-ink mb-2">{s.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{s.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

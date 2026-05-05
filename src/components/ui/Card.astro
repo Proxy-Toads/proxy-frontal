@@ -1,16 +1,19 @@
 ---
 interface Props {
+  href?: string
   class?: string
 }
 
-const { class: className } = Astro.props
+const { href, class: className } = Astro.props
+const base = 'p-6 rounded-xl border border-line bg-surface hover:border-brand/40 transition-colors group'
 ---
 
-<div
-  class:list={[
-    'p-6 rounded-xl border border-line bg-surface hover:border-brand/40 transition-colors group',
-    className,
-  ]}
->
-  <slot />
-</div>
+{href ? (
+  <a href={href} class:list={[base, className]}>
+    <slot />
+  </a>
+) : (
+  <div class:list={[base, className]}>
+    <slot />
+  </div>
+)}

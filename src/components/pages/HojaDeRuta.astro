@@ -1,0 +1,68 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Card from '@/components/ui/Card.astro'
+import GradientPanel from '@/components/ui/GradientPanel.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const base = lang === 'en' ? '' : `/${lang}`
+
+const items = [
+  { title: t('pg.roadmap.i1.title'), desc: t('pg.roadmap.i1.desc') },
+  { title: t('pg.roadmap.i2.title'), desc: t('pg.roadmap.i2.desc') },
+  { title: t('pg.roadmap.i3.title'), desc: t('pg.roadmap.i3.desc') },
+  { title: t('pg.roadmap.i4.title'), desc: t('pg.roadmap.i4.desc') },
+  { title: t('pg.roadmap.i5.title'), desc: t('pg.roadmap.i5.desc') },
+  { title: t('pg.roadmap.i6.title'), desc: t('pg.roadmap.i6.desc') },
+]
+
+const phases = [
+  { title: t('pg.roadmap.phases.1.title'), desc: t('pg.roadmap.phases.1.desc') },
+  { title: t('pg.roadmap.phases.2.title'), desc: t('pg.roadmap.phases.2.desc') },
+  { title: t('pg.roadmap.phases.3.title'), desc: t('pg.roadmap.phases.3.desc') },
+]
+---
+
+<PageLayout title={t('pg.roadmap.meta.title')} description={t('pg.roadmap.meta.desc')}>
+  <PageHero
+    eyebrow={t('pg.roadmap.hero.eyebrow')}
+    title={t('pg.roadmap.hero.title')}
+    subtitle={t('pg.roadmap.hero.sub')}
+    ctaLabel={t('pg.roadmap.hero.cta1')}
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: t('pg.dt.hero.eyebrow'), href: `${base}/transformacion-digital/` },
+      { label: t('pg.audit.hero.eyebrow'), href: `${base}/transformacion-digital/auditoria-procesos/` },
+      { label: t('pg.audit.stages.2.title'), href: `${base}/transformacion-digital/auditoria-procesos/hoja-de-ruta/` },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.roadmap.inc.eyebrow')} headline={t('pg.roadmap.inc.title')} sub={t('pg.roadmap.inc.sub')} />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {items.map(i => (
+          <Card>
+            <h3 class="font-semibold text-ink mb-2">{i.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{i.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+      {phases.map(p => (
+        <GradientPanel class="p-8">
+          <h3 class="font-semibold text-ink mb-3">{p.title}</h3>
+          <p class="text-dim text-sm leading-relaxed">{p.desc}</p>
+        </GradientPanel>
+      ))}
+    </div>
+  </section>
+</PageLayout>

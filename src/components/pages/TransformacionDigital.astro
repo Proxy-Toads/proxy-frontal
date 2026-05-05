@@ -1,0 +1,88 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Card from '@/components/ui/Card.astro'
+import { Icon } from 'astro-icon/components'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const base = lang === 'en' ? '' : `/${lang}`
+
+const solutions = [
+  { icon: 'lucide:clipboard-check', href: `${base}/transformacion-digital/auditoria-procesos/`, title: t('pg.dt.sol.1.title'), desc: t('pg.dt.sol.1.desc') },
+  { icon: 'lucide:building-2', href: `${base}/transformacion-digital/digitalizacion-pymes/`, title: t('pg.dt.sol.2.title'), desc: t('pg.dt.sol.2.desc') },
+  { icon: 'lucide:zap', href: `${base}/transformacion-digital/automatizacion-procesos/`, title: t('pg.dt.sol.3.title'), desc: t('pg.dt.sol.3.desc') },
+]
+
+const stats = [
+  { val: t('pg.dt.stat.1.val'), label: t('pg.dt.stat.1.label') },
+  { val: t('pg.dt.stat.2.val'), label: t('pg.dt.stat.2.label') },
+  { val: t('pg.dt.stat.3.val'), label: t('pg.dt.stat.3.label') },
+  { val: t('pg.dt.stat.4.val'), label: t('pg.dt.stat.4.label') },
+]
+
+const steps = [
+  { num: t('pg.dt.step.1.num'), title: t('pg.dt.step.1.title'), desc: t('pg.dt.step.1.desc') },
+  { num: t('pg.dt.step.2.num'), title: t('pg.dt.step.2.title'), desc: t('pg.dt.step.2.desc') },
+  { num: t('pg.dt.step.3.num'), title: t('pg.dt.step.3.title'), desc: t('pg.dt.step.3.desc') },
+]
+---
+
+<PageLayout title={t('pg.dt.meta.title')} description={t('pg.dt.meta.desc')}>
+  <PageHero
+    eyebrow={t('pg.dt.hero.eyebrow')}
+    title={t('pg.dt.hero.title')}
+    subtitle={t('pg.dt.hero.sub')}
+    ctaLabel={t('pg.dt.hero.cta1')}
+    ctaHref="mailto:hello@proxytoads.com"
+    ctaSecondaryLabel={t('pg.dt.hero.cta2')}
+    ctaSecondaryHref="#services"
+    breadcrumb={[{ label: t('pg.dt.hero.eyebrow'), href: `${base}/transformacion-digital/` }]}
+  />
+
+  <section id="services" class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.dt.sol.eyebrow')} headline={t('pg.dt.sol.title')} sub={t('pg.dt.sol.sub')} />
+      <div class="grid md:grid-cols-3 gap-6">
+        {solutions.map(s => (
+          <Card href={s.href}>
+            <div class="w-11 h-11 rounded-lg bg-brand/10 flex items-center justify-center mb-4 group-hover:bg-brand/20 transition-colors">
+              <Icon name={s.icon} class="w-5 h-5 text-brand" />
+            </div>
+            <h3 class="font-semibold text-ink mb-2">{s.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{s.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {stats.map(s => (
+        <div>
+          <p class="text-4xl font-bold text-brand mb-2">{s.val}</p>
+          <p class="text-dim text-sm">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.dt.how.eyebrow')} headline={t('pg.dt.how.title')} />
+      <div class="grid md:grid-cols-3 gap-6">
+        {steps.map(s => (
+          <Card>
+            <p class="text-5xl font-bold text-brand/20 mb-4">{s.num}</p>
+            <h3 class="text-xl font-semibold text-ink mb-3">{s.title}</h3>
+            <p class="text-dim leading-relaxed">{s.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

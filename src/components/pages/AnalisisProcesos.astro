@@ -1,0 +1,70 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Card from '@/components/ui/Card.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const base = lang === 'en' ? '' : `/${lang}`
+
+const steps = [
+  { num: t('pg.analysis.step.1.num'), title: t('pg.analysis.step.1.title'), desc: t('pg.analysis.step.1.desc') },
+  { num: t('pg.analysis.step.2.num'), title: t('pg.analysis.step.2.title'), desc: t('pg.analysis.step.2.desc') },
+  { num: t('pg.analysis.step.3.num'), title: t('pg.analysis.step.3.title'), desc: t('pg.analysis.step.3.desc') },
+  { num: t('pg.analysis.step.4.num'), title: t('pg.analysis.step.4.title'), desc: t('pg.analysis.step.4.desc') },
+]
+
+const deliverables = [
+  { title: t('pg.analysis.del.1.title'), desc: t('pg.analysis.del.1.desc') },
+  { title: t('pg.analysis.del.2.title'), desc: t('pg.analysis.del.2.desc') },
+  { title: t('pg.analysis.del.3.title'), desc: t('pg.analysis.del.3.desc') },
+  { title: t('pg.analysis.del.4.title'), desc: t('pg.analysis.del.4.desc') },
+]
+---
+
+<PageLayout title={t('pg.analysis.meta.title')} description={t('pg.analysis.meta.desc')}>
+  <PageHero
+    eyebrow={t('pg.analysis.hero.eyebrow')}
+    title={t('pg.analysis.hero.title')}
+    subtitle={t('pg.analysis.hero.sub')}
+    ctaLabel={t('pg.analysis.hero.cta1')}
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: t('pg.dt.hero.eyebrow'), href: `${base}/transformacion-digital/` },
+      { label: t('pg.audit.hero.eyebrow'), href: `${base}/transformacion-digital/auditoria-procesos/` },
+      { label: t('pg.audit.stages.1.title'), href: `${base}/transformacion-digital/auditoria-procesos/analisis/` },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.analysis.meth.eyebrow')} headline={t('pg.analysis.meth.title')} sub={t('pg.analysis.meth.sub')} />
+      <div class="grid md:grid-cols-4 gap-6">
+        {steps.map(s => (
+          <Card>
+            <p class="text-3xl font-bold text-brand/20 mb-4">{s.num}</p>
+            <h3 class="font-semibold text-ink mb-2">{s.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{s.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.analysis.del.eyebrow')} headline={t('pg.analysis.del.title')} />
+      <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {deliverables.map(d => (
+          <Card>
+            <h3 class="font-semibold text-ink mb-2">{d.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{d.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>
