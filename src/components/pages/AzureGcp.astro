@@ -1,0 +1,88 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Card from '@/components/ui/Card.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const base = lang === 'en' ? '' : `/${lang}`
+
+const azureItems = [
+  { title: t('pg.azure.az.1.title'), desc: t('pg.azure.az.1.desc') },
+  { title: t('pg.azure.az.2.title'), desc: t('pg.azure.az.2.desc') },
+  { title: t('pg.azure.az.3.title'), desc: t('pg.azure.az.3.desc') },
+  { title: t('pg.azure.az.4.title'), desc: t('pg.azure.az.4.desc') },
+]
+
+const gcpItems = [
+  { title: t('pg.azure.gcp.1.title'), desc: t('pg.azure.gcp.1.desc') },
+  { title: t('pg.azure.gcp.2.title'), desc: t('pg.azure.gcp.2.desc') },
+  { title: t('pg.azure.gcp.3.title'), desc: t('pg.azure.gcp.3.desc') },
+  { title: t('pg.azure.gcp.4.title'), desc: t('pg.azure.gcp.4.desc') },
+]
+
+const multiCloud = [
+  { title: t('pg.azure.multi.1.title'), desc: t('pg.azure.multi.1.desc') },
+  { title: t('pg.azure.multi.2.title'), desc: t('pg.azure.multi.2.desc') },
+  { title: t('pg.azure.multi.3.title'), desc: t('pg.azure.multi.3.desc') },
+]
+---
+
+<PageLayout title={t('pg.azure.meta.title')} description={t('pg.azure.meta.desc')}>
+  <PageHero
+    eyebrow={t('pg.azure.hero.eyebrow')}
+    title={t('pg.azure.hero.title')}
+    subtitle={t('pg.azure.hero.sub')}
+    ctaLabel={t('pg.azure.hero.cta1')}
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: t('pg.cloud.hero.eyebrow'), href: `${base}/cloud/` },
+      { label: t('pg.infra.hero.eyebrow'), href: `${base}/cloud/aws-infraestructura/` },
+      { label: t('pg.infra.prov.2.title'), href: `${base}/cloud/aws-infraestructura/azure-gcp/` },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <SectionHeader eyebrow={t('pg.azure.az.eyebrow')} headline={t('pg.azure.az.title')} sub={t('pg.azure.az.sub')} />
+        <div class="space-y-4">
+          {azureItems.map(i => (
+            <Card>
+              <h3 class="font-medium text-ink mb-1">{i.title}</h3>
+              <p class="text-dim text-sm">{i.desc}</p>
+            </Card>
+          ))}
+        </div>
+      </div>
+      <div>
+        <SectionHeader eyebrow={t('pg.azure.gcp.eyebrow')} headline={t('pg.azure.gcp.title')} sub={t('pg.azure.gcp.sub')} />
+        <div class="space-y-4">
+          {gcpItems.map(i => (
+            <Card>
+              <h3 class="font-medium text-ink mb-1">{i.title}</h3>
+              <p class="text-dim text-sm">{i.desc}</p>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.azure.multi.eyebrow')} headline={t('pg.azure.multi.title')} />
+      <div class="grid md:grid-cols-3 gap-6">
+        {multiCloud.map(m => (
+          <Card>
+            <h3 class="font-semibold text-ink mb-2">{m.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{m.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

@@ -1,0 +1,87 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Card from '@/components/ui/Card.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const base = lang === 'en' ? '' : `/${lang}`
+
+const what = [
+  { title: t('pg.pa.w1.title'), desc: t('pg.pa.w1.desc') },
+  { title: t('pg.pa.w2.title'), desc: t('pg.pa.w2.desc') },
+  { title: t('pg.pa.w3.title'), desc: t('pg.pa.w3.desc') },
+  { title: t('pg.pa.w4.title'), desc: t('pg.pa.w4.desc') },
+  { title: t('pg.pa.w5.title'), desc: t('pg.pa.w5.desc') },
+  { title: t('pg.pa.w6.title'), desc: t('pg.pa.w6.desc') },
+]
+
+const stats = [
+  { val: t('pg.pa.stat.1.val'), label: t('pg.pa.stat.1.label') },
+  { val: t('pg.pa.stat.2.val'), label: t('pg.pa.stat.2.label') },
+  { val: t('pg.pa.stat.3.val'), label: t('pg.pa.stat.3.label') },
+  { val: t('pg.pa.stat.4.val'), label: t('pg.pa.stat.4.label') },
+]
+
+const tech = [
+  { title: t('pg.pa.tech.1.title'), desc: t('pg.pa.tech.1.desc') },
+  { title: t('pg.pa.tech.2.title'), desc: t('pg.pa.tech.2.desc') },
+  { title: t('pg.pa.tech.3.title'), desc: t('pg.pa.tech.3.desc') },
+]
+---
+
+<PageLayout title={t('pg.pa.meta.title')} description={t('pg.pa.meta.desc')}>
+  <PageHero
+    eyebrow={t('pg.pa.hero.eyebrow')}
+    title={t('pg.pa.hero.title')}
+    subtitle={t('pg.pa.hero.sub')}
+    ctaLabel={t('pg.pa.hero.cta1')}
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: t('pg.dt.hero.eyebrow'), href: `${base}/transformacion-digital/` },
+      { label: t('pg.pa.hero.eyebrow'), href: `${base}/transformacion-digital/automatizacion-procesos/` },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.pa.what.eyebrow')} headline={t('pg.pa.what.title')} sub={t('pg.pa.what.sub')} />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {what.map(w => (
+          <Card>
+            <h3 class="font-semibold text-ink mb-2">{w.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{w.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {stats.map(s => (
+        <div>
+          <p class="text-4xl font-bold text-brand mb-2">{s.val}</p>
+          <p class="text-dim text-sm">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.pa.tech.eyebrow')} headline={t('pg.pa.tech.title')} />
+      <div class="grid md:grid-cols-3 gap-6">
+        {tech.map(item => (
+          <Card>
+            <h3 class="font-semibold text-ink mb-2">{item.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{item.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

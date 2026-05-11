@@ -1,0 +1,72 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Card from '@/components/ui/Card.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const base = lang === 'en' ? '' : `/${lang}`
+
+const ops = [
+  { title: t('pg.devops.o1.title'), desc: t('pg.devops.o1.desc') },
+  { title: t('pg.devops.o2.title'), desc: t('pg.devops.o2.desc') },
+  { title: t('pg.devops.o3.title'), desc: t('pg.devops.o3.desc') },
+  { title: t('pg.devops.o4.title'), desc: t('pg.devops.o4.desc') },
+  { title: t('pg.devops.o5.title'), desc: t('pg.devops.o5.desc') },
+  { title: t('pg.devops.o6.title'), desc: t('pg.devops.o6.desc') },
+]
+
+const sec = [
+  { title: t('pg.devops.s1.title'), desc: t('pg.devops.s1.desc') },
+  { title: t('pg.devops.s2.title'), desc: t('pg.devops.s2.desc') },
+  { title: t('pg.devops.s3.title'), desc: t('pg.devops.s3.desc') },
+  { title: t('pg.devops.s4.title'), desc: t('pg.devops.s4.desc') },
+  { title: t('pg.devops.s5.title'), desc: t('pg.devops.s5.desc') },
+  { title: t('pg.devops.s6.title'), desc: t('pg.devops.s6.desc') },
+]
+---
+
+<PageLayout title={t('pg.devops.meta.title')} description={t('pg.devops.meta.desc')}>
+  <PageHero
+    eyebrow={t('pg.devops.hero.eyebrow')}
+    title={t('pg.devops.hero.title')}
+    subtitle={t('pg.devops.hero.sub')}
+    ctaLabel={t('pg.devops.hero.cta1')}
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: t('pg.cloud.hero.eyebrow'), href: `${base}/cloud/` },
+      { label: t('pg.devops.hero.eyebrow'), href: `${base}/cloud/seguridad-devops/` },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.devops.ops.eyebrow')} headline={t('pg.devops.ops.title')} sub={t('pg.devops.ops.sub')} />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {ops.map(o => (
+          <Card>
+            <h3 class="font-semibold text-ink mb-2">{o.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{o.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.devops.sec.eyebrow')} headline={t('pg.devops.sec.title')} />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sec.map(s => (
+          <Card>
+            <h3 class="font-semibold text-ink mb-2">{s.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{s.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

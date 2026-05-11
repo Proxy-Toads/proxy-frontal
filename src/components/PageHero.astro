@@ -1,0 +1,79 @@
+---
+import Button from '@/components/ui/Button.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+interface Crumb {
+  label: string
+  href: string
+}
+
+interface Props {
+  eyebrow?: string
+  title: string
+  subtitle: string
+  breadcrumb?: Crumb[]
+  ctaLabel?: string
+  ctaHref?: string
+  ctaSecondaryLabel?: string
+  ctaSecondaryHref?: string
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  breadcrumb,
+  ctaLabel,
+  ctaHref,
+  ctaSecondaryLabel,
+  ctaSecondaryHref,
+} = Astro.props
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const homeHref = lang === 'en' ? '/' : `/${lang}/`
+const homeLabel = lang === 'en' ? 'Home' : 'Inicio'
+---
+
+<section class="py-section px-6 border-b border-line">
+  <div class="max-w-4xl mx-auto text-center">
+    {breadcrumb && breadcrumb.length > 0 && (
+      <nav class="mb-8 flex items-center justify-center gap-2 text-sm text-dim" aria-label="Breadcrumb">
+        <a href={homeHref} class="hover:text-ink transition-colors">{homeLabel}</a>
+        {breadcrumb.map((crumb, i) => (
+          <>
+            <span class="opacity-40">/</span>
+            {i === breadcrumb.length - 1 ? (
+              <span class="text-ink">{crumb.label}</span>
+            ) : (
+              <a href={crumb.href} class="hover:text-ink transition-colors">{crumb.label}</a>
+            )}
+          </>
+        ))}
+      </nav>
+    )}
+
+    {eyebrow && (
+      <p class="text-brand text-sm font-medium uppercase tracking-wider mb-4">{eyebrow}</p>
+    )}
+
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-ink mb-6 leading-tight text-balance">
+      {title}
+    </h1>
+
+    <p class="text-lg md:text-xl text-dim max-w-2xl mx-auto mb-8 leading-relaxed text-pretty">
+      {subtitle}
+    </p>
+
+    {(ctaLabel || ctaSecondaryLabel) && (
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        {ctaLabel && ctaHref && (
+          <Button href={ctaHref}>{ctaLabel}</Button>
+        )}
+        {ctaSecondaryLabel && ctaSecondaryHref && (
+          <Button href={ctaSecondaryHref} variant="outline">{ctaSecondaryLabel}</Button>
+        )}
+      </div>
+    )}
+  </div>
+</section>

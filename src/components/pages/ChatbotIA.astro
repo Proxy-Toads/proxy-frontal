@@ -1,0 +1,70 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Card from '@/components/ui/Card.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const base = lang === 'en' ? '' : `/${lang}`
+
+const channels = [
+  { href: `${base}/automatizacion-ia/chatbot-ia/whatsapp/`, title: t('pg.chatbot.ch.1.title'), desc: t('pg.chatbot.ch.1.desc') },
+  { href: `${base}/automatizacion-ia/chatbot-ia/web/`, title: t('pg.chatbot.ch.2.title'), desc: t('pg.chatbot.ch.2.desc') },
+]
+
+const features = [
+  { title: t('pg.chatbot.feat.1.title'), desc: t('pg.chatbot.feat.1.desc') },
+  { title: t('pg.chatbot.feat.2.title'), desc: t('pg.chatbot.feat.2.desc') },
+  { title: t('pg.chatbot.feat.3.title'), desc: t('pg.chatbot.feat.3.desc') },
+  { title: t('pg.chatbot.feat.4.title'), desc: t('pg.chatbot.feat.4.desc') },
+  { title: t('pg.chatbot.feat.5.title'), desc: t('pg.chatbot.feat.5.desc') },
+  { title: t('pg.chatbot.feat.6.title'), desc: t('pg.chatbot.feat.6.desc') },
+]
+---
+
+<PageLayout title={t('pg.chatbot.meta.title')} description={t('pg.chatbot.meta.desc')}>
+  <PageHero
+    eyebrow={t('pg.chatbot.hero.eyebrow')}
+    title={t('pg.chatbot.hero.title')}
+    subtitle={t('pg.chatbot.hero.sub')}
+    ctaLabel={t('pg.chatbot.hero.cta1')}
+    ctaHref="mailto:hello@proxytoads.com"
+    ctaSecondaryLabel={t('pg.chatbot.hero.cta2')}
+    ctaSecondaryHref="#channels"
+    breadcrumb={[
+      { label: t('pg.ai.hero.eyebrow'), href: `${base}/automatizacion-ia/` },
+      { label: t('pg.chatbot.hero.eyebrow'), href: `${base}/automatizacion-ia/chatbot-ia/` },
+    ]}
+  />
+
+  <section id="channels" class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.chatbot.ch.eyebrow')} headline={t('pg.chatbot.ch.title')} sub={t('pg.chatbot.ch.sub')} />
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {channels.map(c => (
+          <Card href={c.href}>
+            <h3 class="font-semibold text-ink mb-2 group-hover:text-brand transition-colors">{c.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{c.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.chatbot.feat.eyebrow')} headline={t('pg.chatbot.feat.title')} />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map(f => (
+          <Card>
+            <h3 class="font-semibold text-ink mb-2">{f.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{f.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

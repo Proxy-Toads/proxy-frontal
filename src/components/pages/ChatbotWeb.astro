@@ -1,0 +1,70 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Card from '@/components/ui/Card.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const base = lang === 'en' ? '' : `/${lang}`
+
+const features = [
+  { title: t('pg.wchat.f1.title'), desc: t('pg.wchat.f1.desc') },
+  { title: t('pg.wchat.f2.title'), desc: t('pg.wchat.f2.desc') },
+  { title: t('pg.wchat.f3.title'), desc: t('pg.wchat.f3.desc') },
+  { title: t('pg.wchat.f4.title'), desc: t('pg.wchat.f4.desc') },
+  { title: t('pg.wchat.f5.title'), desc: t('pg.wchat.f5.desc') },
+  { title: t('pg.wchat.f6.title'), desc: t('pg.wchat.f6.desc') },
+]
+
+const integrations = [
+  { title: t('pg.wchat.int.1.title'), desc: t('pg.wchat.int.1.desc') },
+  { title: t('pg.wchat.int.2.title'), desc: t('pg.wchat.int.2.desc') },
+  { title: t('pg.wchat.int.3.title'), desc: t('pg.wchat.int.3.desc') },
+]
+---
+
+<PageLayout title={t('pg.wchat.meta.title')} description={t('pg.wchat.meta.desc')}>
+  <PageHero
+    eyebrow={t('pg.wchat.hero.eyebrow')}
+    title={t('pg.wchat.hero.title')}
+    subtitle={t('pg.wchat.hero.sub')}
+    ctaLabel={t('pg.wchat.hero.cta1')}
+    ctaHref="mailto:hello@proxytoads.com"
+    breadcrumb={[
+      { label: t('pg.ai.hero.eyebrow'), href: `${base}/automatizacion-ia/` },
+      { label: t('pg.chatbot.hero.eyebrow'), href: `${base}/automatizacion-ia/chatbot-ia/` },
+      { label: t('pg.chatbot.ch.2.title'), href: `${base}/automatizacion-ia/chatbot-ia/web/` },
+    ]}
+  />
+
+  <section class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.wchat.feat.eyebrow')} headline={t('pg.wchat.feat.title')} sub={t('pg.wchat.feat.sub')} />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map(f => (
+          <Card>
+            <h3 class="font-semibold text-ink mb-2">{f.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{f.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.wchat.int.eyebrow')} headline={t('pg.wchat.int.title')} />
+      <div class="grid md:grid-cols-3 gap-6">
+        {integrations.map(i => (
+          <Card>
+            <h3 class="font-semibold text-ink mb-2">{i.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{i.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

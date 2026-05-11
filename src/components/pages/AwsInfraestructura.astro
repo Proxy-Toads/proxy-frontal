@@ -1,0 +1,70 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import PageHero from '@/components/PageHero.astro'
+import SectionHeader from '@/components/ui/SectionHeader.astro'
+import Card from '@/components/ui/Card.astro'
+import { useTranslations } from '@/i18n/utils'
+import type { Lang } from '@/i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'en') as Lang
+const t = useTranslations(lang)
+const base = lang === 'en' ? '' : `/${lang}`
+
+const providers = [
+  { href: `${base}/cloud/aws-infraestructura/aws/`, title: t('pg.infra.prov.1.title'), desc: t('pg.infra.prov.1.desc') },
+  { href: `${base}/cloud/aws-infraestructura/azure-gcp/`, title: t('pg.infra.prov.2.title'), desc: t('pg.infra.prov.2.desc') },
+]
+
+const services = [
+  { title: t('pg.infra.svc.1.title'), desc: t('pg.infra.svc.1.desc') },
+  { title: t('pg.infra.svc.2.title'), desc: t('pg.infra.svc.2.desc') },
+  { title: t('pg.infra.svc.3.title'), desc: t('pg.infra.svc.3.desc') },
+  { title: t('pg.infra.svc.4.title'), desc: t('pg.infra.svc.4.desc') },
+  { title: t('pg.infra.svc.5.title'), desc: t('pg.infra.svc.5.desc') },
+  { title: t('pg.infra.svc.6.title'), desc: t('pg.infra.svc.6.desc') },
+]
+---
+
+<PageLayout title={t('pg.infra.meta.title')} description={t('pg.infra.meta.desc')}>
+  <PageHero
+    eyebrow={t('pg.infra.hero.eyebrow')}
+    title={t('pg.infra.hero.title')}
+    subtitle={t('pg.infra.hero.sub')}
+    ctaLabel={t('pg.infra.hero.cta1')}
+    ctaHref="mailto:hello@proxytoads.com"
+    ctaSecondaryLabel={t('pg.infra.hero.cta2')}
+    ctaSecondaryHref="#providers"
+    breadcrumb={[
+      { label: t('pg.cloud.hero.eyebrow'), href: `${base}/cloud/` },
+      { label: t('pg.infra.hero.eyebrow'), href: `${base}/cloud/aws-infraestructura/` },
+    ]}
+  />
+
+  <section id="providers" class="py-section px-6">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.infra.prov.eyebrow')} headline={t('pg.infra.prov.title')} sub={t('pg.infra.prov.sub')} />
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {providers.map(p => (
+          <Card href={p.href}>
+            <h3 class="font-semibold text-ink mb-2 group-hover:text-brand transition-colors">{p.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{p.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section px-6 bg-surface border-t border-b border-line">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow={t('pg.infra.svc.eyebrow')} headline={t('pg.infra.svc.title')} />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(s => (
+          <Card>
+            <h3 class="font-semibold text-ink mb-2">{s.title}</h3>
+            <p class="text-sm text-dim leading-relaxed">{s.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>
